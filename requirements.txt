@@ -1,0 +1,7 @@
+openai-agents
+python-dotenv
+pydantic
+duckduckgo-search
+bs4 
+requests
+rich
