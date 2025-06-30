@@ -102,13 +102,30 @@ Please structure your response according to the MetricAnalysisResult format.
         
         return analysis_prompt
     
-    async def analyze_metrics(self, context: UserProfileContext) -> str:
+    async def analyze_metrics(self, context: UserProfileContext, memory_context: str = "") -> str:
         """Analyze user health metrics using the AI agent"""
         try:
             from agents import Runner
             
             # Format the data for analysis
             analysis_input = self.format_user_data_for_analysis(context)
+            
+            # Add memory context if available
+            if memory_context:
+                analysis_input += f"""
+
+### PREVIOUS MEMORY & CONTEXT
+The following is previous memory and context about this user that should inform your analysis:
+
+{memory_context}
+
+**Important**: Use this memory context to:
+- Identify changes and trends since previous analyses
+- Consider user preferences and goals in your recommendations
+- Note improvements or deteriorations from past analyses
+- Provide continuity in your health recommendations
+- Avoid repeating identical advice if recent analysis exists
+"""
             
             # Run the analysis agent
             result = await Runner.run(
@@ -217,15 +234,16 @@ metric_analysis_agent = Agent(
 )
 
 # Utility function for easy access
-async def analyze_user_health_metrics(user_context: UserProfileContext) -> str:
+async def analyze_user_health_metrics(user_context: UserProfileContext, memory_context: str = "") -> str:
     """
     Analyze user health metrics using AI
     
     Args:
         user_context: UserProfileContext containing all user health data
+        memory_context: Previous memory and context for continuity
         
     Returns:
         Comprehensive health analysis as a string
     """
     service = MetricAnalysisService()
-    return await service.analyze_metrics(user_context)
+    return await service.analyze_metrics(user_context, memory_context)

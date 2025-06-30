@@ -1,5 +1,7 @@
 import time
 import json
+import os
+from datetime import datetime, date, time as datetime_time
 from agents import Runner, trace
 from duckduckgo_search import DDGS
 from rich.console import Console
@@ -11,12 +13,119 @@ from health_agents.user_profile import get_user_profile_context
 from health_agents.metric_analysis_agent import analyze_user_health_metrics
 from health_agents.nutrition_plan_agent import create_personalized_nutrition_plan, NutritionPlanResult
 from health_agents.routine_plan_agent import create_personalized_routine_plan, RoutinePlanResult
+from health_agents.memory_manager import MemoryManager
 
 console = Console()
 
 class HealthCoordinator:
-    def __init__(self, profile_id: str):
+    def __init__(self, profile_id: str, database_url: str = None):
         self.profile_id = profile_id
+        self.memory_manager = MemoryManager(database_url)
+
+    def serialize_data(self, obj):
+        """Helper method to serialize objects with datetime handling"""
+        if hasattr(obj, 'dict'):
+            data = obj.dict()
+        elif hasattr(obj, '__dict__'):
+            data = obj.__dict__
+        else:
+            return str(obj)
+        
+        # Convert datetime objects to ISO format strings
+        def convert_datetime(item):
+            if isinstance(item, datetime):
+                return item.isoformat()
+            elif isinstance(item, date):
+                return item.isoformat()
+            elif isinstance(item, datetime_time):
+                return item.isoformat()
+            elif isinstance(item, dict):
+                return {k: convert_datetime(v) for k, v in item.items()}
+            elif isinstance(item, list):
+                return [convert_datetime(v) for v in item]
+            else:
+                return item
+        
+        return convert_datetime(data)
+
+    def log_input_data(self, user_context, user_memory, memory_context):
+        """Log input data (user profile and memory context) to input.txt in JSON format"""
+        try:
+            # Prepare input data for logging
+            input_data = {
+                "timestamp": datetime.now().isoformat(),
+                "profile_id": self.profile_id,
+                "user_profile": {
+                    "date_range": {
+                        "start_date": user_context.date_range['start_date'].isoformat() if user_context.date_range.get('start_date') else None,
+                        "end_date": user_context.date_range['end_date'].isoformat() if user_context.date_range.get('end_date') else None,
+                        "days": user_context.date_range.get('days')
+                    },
+                    "data_summary": {
+                        "scores_count": len(user_context.scores),
+                        "archetypes_count": len(user_context.archetypes),
+                        "biomarkers_count": len(user_context.biomarkers)
+                    },
+                    "scores": [self.serialize_data(score) for score in user_context.scores],
+                    "archetypes": [self.serialize_data(archetype) for archetype in user_context.archetypes],
+                    "biomarkers": [self.serialize_data(biomarker) for biomarker in user_context.biomarkers]
+                },
+                "memory_context": {
+                    "has_memory": user_memory is not None,
+                    "total_analyses": user_memory.total_analyses if user_memory else 0,
+                    "last_analysis_date": user_memory.last_analysis_date.isoformat() if user_memory and user_memory.last_analysis_date else None,
+                    "user_preferences": user_memory.user_preferences if user_memory else {},
+                    "health_goals": user_memory.health_goals if user_memory else {},
+                    "dietary_restrictions": user_memory.dietary_restrictions if user_memory else {},
+                    "lifestyle_context": user_memory.lifestyle_context if user_memory else {},
+                    "medical_conditions": user_memory.medical_conditions if user_memory else {},
+                    "formatted_context": memory_context
+                }
+            }
+            
+            # Append to input.txt file
+            with open("input.txt", "a", encoding="utf-8") as f:
+                f.write(json.dumps(input_data, indent=2, ensure_ascii=False, default=str) + "\n" + "="*80 + "\n")
+            
+            console.print("[dim]📝 Input data logged to input.txt[/dim]")
+            
+        except Exception as e:
+            console.print(f"[red]⚠️ Error logging input data: {str(e)}[/red]")
+
+    def log_output_data(self, analysis_result, nutrition_plan=None, routine_plan=None):
+        """Log output data (analysis, nutrition plan, routine plan) to output.txt in JSON format"""
+        try:
+            # Prepare output data for logging
+            output_data = {
+                "timestamp": datetime.now().isoformat(),
+                "profile_id": self.profile_id,
+                "metric_analysis": analysis_result,
+                "nutrition_plan": None,
+                "routine_plan": None
+            }
+            
+            # Add nutrition plan if available
+            if nutrition_plan:
+                try:
+                    output_data["nutrition_plan"] = self.serialize_data(nutrition_plan)
+                except Exception as e:
+                    output_data["nutrition_plan"] = f"Error serializing nutrition plan: {str(e)}"
+            
+            # Add routine plan if available
+            if routine_plan:
+                try:
+                    output_data["routine_plan"] = self.serialize_data(routine_plan)
+                except Exception as e:
+                    output_data["routine_plan"] = f"Error serializing routine plan: {str(e)}"
+            
+            # Append to output.txt file
+            with open("output.txt", "a", encoding="utf-8") as f:
+                f.write(json.dumps(output_data, indent=2, ensure_ascii=False, default=str) + "\n" + "="*80 + "\n")
+            
+            console.print("[dim]📝 Output data logged to output.txt[/dim]")
+            
+        except Exception as e:
+            console.print(f"[red]⚠️ Error logging output data: {str(e)}[/red]")
 
     def display_routine_plan(self, routine_result: RoutinePlanResult):
         """Display structured routine plan data"""
@@ -108,8 +217,39 @@ class HealthCoordinator:
     async def run_analysis(self, days: int = 7):
         """Complete health analysis workflow with nutrition and routine planning"""
         
+        # Initialize variables to store results for logging
+        analysis_result = None
+        nutrition_plan = None
+        routine_plan = None
+        
         with trace("Health Analysis Workflow"):
             console.print(f"[bold cyan]🏥 Starting Comprehensive Health Analysis for Profile: {self.profile_id}[/bold cyan]")
+            
+            # Step 0: Initialize memory and retrieve user memory
+            console.print("[cyan]🧠 Retrieving user memory and context...[/cyan]")
+            try:
+                await self.memory_manager.connect()
+                user_memory = await self.memory_manager.get_user_memory(self.profile_id)
+                
+                if user_memory:
+                    console.print(Panel(
+                        f"[bold green]✅ Memory Retrieved Successfully[/bold green]\n"
+                        f"[yellow]Previous Analyses:[/yellow] {user_memory.total_analyses}\n"
+                        f"[yellow]Last Analysis:[/yellow] {user_memory.last_analysis_date}\n"
+                        f"[yellow]Has Nutrition Plan:[/yellow] {'Yes' if user_memory.last_nutrition_plan else 'No'}\n"
+                        f"[yellow]Has Routine Plan:[/yellow] {'Yes' if user_memory.last_routine_plan else 'No'}\n"
+                        f"[yellow]User Preferences:[/yellow] {len(user_memory.user_preferences)} items\n"
+                        f"[yellow]Health Goals:[/yellow] {len(user_memory.health_goals)} items",
+                        title="🧠 User Memory Summary"
+                    ))
+                else:
+                    console.print("[yellow]⚠️ No previous memory found. Creating new memory record...[/yellow]")
+                    await self.memory_manager.create_user_memory(self.profile_id)
+                    user_memory = await self.memory_manager.get_user_memory(self.profile_id)
+                
+            except Exception as e:
+                console.print(f"[bold red]❌ Error retrieving user memory: {str(e)}[/bold red]")
+                user_memory = None
             
             # Step 1: Fetch user profile data
             console.print("[cyan]📊 Fetching user health data...[/cyan]")
@@ -131,11 +271,27 @@ class HealthCoordinator:
                 console.print(f"[bold red]❌ Error fetching user data: {str(e)}[/bold red]")
                 return
             
-            # Step 2: Run health metrics analysis
+            # Log input data (user profile and memory context)
+            console.print("[cyan]📝 Logging input data...[/cyan]")
+            try:
+                # Format memory context for analysis
+                memory_context = ""
+                if user_memory:
+                    memory_context = self.memory_manager.format_memory_context(user_memory)
+                    console.print("[dim]📝 Including previous memory context...[/dim]")
+                
+                # Log input data before analysis
+                self.log_input_data(user_context, user_memory, memory_context)
+                
+            except Exception as e:
+                console.print(f"[red]⚠️ Error logging input data: {str(e)}[/red]")
+                memory_context = ""
+
+            # Step 2: Run health metrics analysis with memory context
             console.print("[cyan]🤖 Running AI-powered health metrics analysis...[/cyan]")
             try:
                 with console.status("[bold cyan]Analyzing health metrics with AI...") as status:
-                    analysis_result = await analyze_user_health_metrics(user_context)
+                    analysis_result = await analyze_user_health_metrics(user_context, memory_context)
                 
                 console.print("[bold green]✅ Health analysis complete![/bold green]\n")
                 
@@ -145,6 +301,31 @@ class HealthCoordinator:
                     title="🏥 Health Analysis Report",
                     border_style="green"
                 ))
+                
+                # Store analysis result for later logging
+                
+                # Update memory with analysis result
+                if user_memory:
+                    # Convert datetime objects to strings for JSON serialization
+                    analysis_insights = {
+                        "analysis_date_range": {
+                            "start_date": user_context.date_range['start_date'].isoformat(),
+                            "end_date": user_context.date_range['end_date'].isoformat(),
+                            "days": user_context.date_range['days']
+                        },
+                        "data_summary": {
+                            "scores_count": len(user_context.scores),
+                            "archetypes_count": len(user_context.archetypes),
+                            "biomarkers_count": len(user_context.biomarkers)
+                        }
+                    }
+                    
+                    await self.memory_manager.update_analysis_result(
+                        self.profile_id, 
+                        analysis_result,
+                        analysis_insights
+                    )
+                    console.print("[dim]💾 Analysis results saved to memory...[/dim]")
                 
             except Exception as e:
                 console.print(f"[bold red]❌ Error during health analysis: {str(e)}[/bold red]")
@@ -161,8 +342,14 @@ class HealthCoordinator:
                 # Display the nutrition plan
                 self.display_nutrition_plan(nutrition_plan)
                 
+                # Update memory with nutrition plan
+                if user_memory:
+                    await self.memory_manager.update_nutrition_plan(self.profile_id, nutrition_plan)
+                    console.print("[dim]💾 Nutrition plan saved to memory...[/dim]")
+                
             except Exception as e:
                 console.print(f"[bold red]❌ Error creating nutrition plan: {str(e)}[/bold red]")
+                nutrition_plan = None
             
             # Step 4: Create personalized routine plan
             console.print("[cyan]🏃‍♀️ Creating personalized routine plan...[/cyan]")
@@ -175,8 +362,21 @@ class HealthCoordinator:
                 # Display the routine plan
                 self.display_routine_plan(routine_plan)
                 
+                # Update memory with routine plan
+                if user_memory:
+                    await self.memory_manager.update_routine_plan(self.profile_id, routine_plan)
+                    console.print("[dim]💾 Routine plan saved to memory...[/dim]")
+                
             except Exception as e:
                 console.print(f"[bold red]❌ Error creating routine plan: {str(e)}[/bold red]")
+                routine_plan = None
+            
+            # Log complete output data (analysis + nutrition plan + routine plan)
+            console.print("[cyan]📝 Logging complete output data...[/cyan]")
+            try:
+                self.log_output_data(analysis_result, nutrition_plan, routine_plan)
+            except Exception as e:
+                console.print(f"[red]⚠️ Error logging output data: {str(e)}[/red]")
             
             # Final summary
             console.print("\n" + "="*80)
@@ -185,5 +385,12 @@ class HealthCoordinator:
             console.print(f"[cyan]✅ Health metrics analyzed for profile: {self.profile_id}[/cyan]")
             console.print(f"[cyan]✅ Personalized nutrition plan generated (Structured Output)[/cyan]")
             console.print(f"[cyan]✅ Personalized routine plan generated (Structured Output)[/cyan]")
+            console.print(f"[cyan]✅ User memory updated with latest results[/cyan]")
             console.print(f"[dim]Analysis period: {user_context.date_range['start_date']} to {user_context.date_range['end_date']}[/dim]")
             console.print("="*80)
+            
+            # Cleanup
+            try:
+                await self.memory_manager.disconnect()
+            except Exception as e:
+                console.print(f"[dim]⚠️ Warning: Error disconnecting from database: {str(e)}[/dim]")

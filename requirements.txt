@@ -5,3 +5,4 @@ duckduckgo-search
 bs4 
 requests
 rich
+asyncpg
