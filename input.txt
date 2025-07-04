@@ -1,0 +1,3828 @@
+{
+  "timestamp": "2025-06-30T19:50:13.042582",
+  "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+  "user_profile": {
+    "date_range": {
+      "start_date": "2025-05-12T04:00:00",
+      "end_date": "2025-05-19T04:00:00",
+      "days": "1970-01-01 00:00:07+00:00"
+    },
+    "data_summary": {
+      "scores_count": 30,
+      "archetypes_count": 9,
+      "biomarkers_count": 65
+    },
+    "scores": [
+      {
+        "id": "86732a43-55ee-4c47-adfa-0619bab1d3da",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "mental_wellbeing",
+        "score": 0.59,
+        "data": {
+          "id": "bd34da41-3422-58b1-8854-9dc282fa6dab",
+          "type": "mental_wellbeing",
+          "score": 0.59,
+          "state": "low",
+          "factors": [
+            {
+              "id": "b537073e-14e8-56cd-9950-aa510b43dc9d",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.6499999761581421,
+              "state": "medium",
+              "value": 1020
+            },
+            {
+              "id": "2786e449-4e4d-5777-b314-3a684c939673",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 16
+            },
+            {
+              "id": "79910ad4-d6ca-5424-8226-5596c8f02bca",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8199999928474426,
+              "state": "high",
+              "value": 0.8190000057220459
+            },
+            {
+              "id": "62aaab4d-856e-582f-abf8-1b6d90f1161b",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.5,
+              "state": "low",
+              "value": 200
+            },
+            {
+              "id": "83a1803d-4bcb-574d-aafa-1c9a629fb87a",
+              "goal": 1,
+              "name": "activity_regularity",
+              "unit": "index",
+              "score": 0.41999998688697815,
+              "state": "low",
+              "value": 0.6759999990463257
+            },
+            {
+              "id": "ea77993d-463c-58e5-8948-5eac3cb7aa75",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity",
+            "sleep"
+          ],
+          "createdAtUtc": "2025-05-26T05:10:16+00:00",
+          "scoreDateTime": "2025-05-18T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:52.967846+00:00",
+        "updated_at": "2025-06-11T14:31:52.967846+00:00"
+      },
+      {
+        "id": "718085c3-6d22-42df-ae17-017c6cdec817",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "activity",
+        "score": 0.62,
+        "data": {
+          "id": "467264e9-7b93-521f-bd48-6d3ac13d7951",
+          "type": "activity",
+          "score": 0.62,
+          "state": "low",
+          "factors": [
+            {
+              "id": "84fe36ab-aa2e-53a0-b3e2-bb873dfc7bae",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.6499999761581421,
+              "state": "medium",
+              "value": 1020
+            },
+            {
+              "id": "e553b163-70e5-5a82-9db3-b8890790fdc7",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 16
+            },
+            {
+              "id": "799be3be-fa7b-5d1c-8bcd-8f0bd1a00b63",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.25999999046325684,
+              "state": "minimal",
+              "value": 19
+            },
+            {
+              "id": "dd0855a6-1c7e-57fd-a0ba-bc1068d6f19d",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "19530362-c225-5933-a3ef-5136c2791ad8",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 1,
+              "state": "high",
+              "value": 20
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity"
+          ],
+          "createdAtUtc": "2025-05-19T07:18:31+00:00",
+          "scoreDateTime": "2025-05-18T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.917376+00:00",
+        "updated_at": "2025-06-11T14:31:51.917376+00:00"
+      },
+      {
+        "id": "e10975ba-078a-42a9-a8c0-d2cee7624568",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "wellbeing",
+        "score": 0.68,
+        "data": {
+          "id": "1f743929-cd39-5ab4-804c-77d2867b7378",
+          "type": "wellbeing",
+          "score": 0.68,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "b4252071-954b-517c-8c99-0add1b1dd18a",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 0.43799999356269836
+            },
+            {
+              "id": "57573890-a6e3-5808-ad07-5741de4cb79a",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8199999928474426,
+              "state": "high",
+              "value": 0.8190000057220459
+            },
+            {
+              "id": "eaffa358-5938-522e-a291-619401f06d0d",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.6499999761581421,
+              "state": "medium",
+              "value": 1020
+            },
+            {
+              "id": "5c5e0250-d801-5c4c-b3e5-342da5a6543a",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 16
+            },
+            {
+              "id": "9f7309e0-2673-55a8-8b20-c74007ccf9a9",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.25999999046325684,
+              "state": "minimal",
+              "value": 19
+            },
+            {
+              "id": "01f31b66-400a-5e28-bdd7-db45e1266bde",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "c12056ae-f0bc-54ca-bea6-de5005336d6c",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 1,
+              "state": "high",
+              "value": 20
+            },
+            {
+              "id": "af0accff-1fd5-507e-a8f4-6a2ccac7e3c7",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.5,
+              "state": "low",
+              "value": 200
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-05-26T05:10:16+00:00",
+          "scoreDateTime": "2025-05-18T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.065928+00:00",
+        "updated_at": "2025-06-11T14:31:51.065928+00:00"
+      },
+      {
+        "id": "a3f7ae12-7867-4450-b8d4-6b9c642ed249",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "sleep",
+        "score": 0.62,
+        "data": {
+          "id": "1febcccc-1217-595e-a687-8024424da213",
+          "type": "sleep",
+          "score": 0.62,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "76eb076a-4056-503f-91ce-66fa61771386",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.36000001430511475,
+              "state": "minimal",
+              "value": 757
+            },
+            {
+              "id": "3859e0ea-ae33-5953-8017-1c064c5aca86",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 0.43799999356269836
+            },
+            {
+              "id": "e0373679-0d21-524b-8ddd-0b0ecc539cc8",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8199999928474426,
+              "state": "high",
+              "value": 0.8190000057220459
+            },
+            {
+              "id": "6a1402f7-5f6c-5122-bbc2-5b2fe88f6b41",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.5,
+              "state": "low",
+              "value": 200
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep"
+          ],
+          "createdAtUtc": "2025-05-26T05:10:16+00:00",
+          "scoreDateTime": "2025-05-18T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:53.849792+00:00",
+        "updated_at": "2025-06-11T14:31:53.849792+00:00"
+      },
+      {
+        "id": "14b30c5a-0ed1-4355-89b4-d3d106040687",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "readiness",
+        "score": 0.82,
+        "data": {
+          "id": "91e83ab2-fdd8-509a-82a4-f0280879d1ea",
+          "type": "readiness",
+          "score": 0.82,
+          "state": "high",
+          "factors": [
+            {
+              "id": "b4d7a2ea-87e2-59f6-a8e6-c419966553dd",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.3499999940395355,
+              "state": "minimal",
+              "value": 757
+            },
+            {
+              "id": "618d3e46-5def-54cf-9559-6332afdcb153",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 0.43799999356269836
+            },
+            {
+              "id": "127b63d6-225c-5bd1-b110-d55f645646f0",
+              "goal": 1,
+              "name": "walking_strain_capacity",
+              "unit": "index",
+              "score": 0.9800000190734863,
+              "state": "high",
+              "value": 0.9800000190734863
+            },
+            {
+              "id": "414c056b-d07f-5419-9250-4b3d19a4ccc1",
+              "goal": 1,
+              "name": "exercise_strain_capacity",
+              "unit": "index",
+              "score": 0.9599999785423279,
+              "state": "high",
+              "value": 0.9599999785423279
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-11T13:35:11+00:00",
+          "scoreDateTime": "2025-05-18T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:54.751070+00:00",
+        "updated_at": "2025-06-11T14:31:54.751070+00:00"
+      },
+      {
+        "id": "5e2bf249-a745-443d-8362-69d974246be5",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "activity",
+        "score": 0.7,
+        "data": {
+          "id": "ce72eafb-38ae-5595-a419-3ce86b917f74",
+          "type": "activity",
+          "score": 0.7,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "4a758632-4de2-59e5-a208-36551c8f1af2",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "208ace1d-a8ca-5148-9e1a-137969188413",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.7099999785423279,
+              "state": "medium",
+              "value": 4010
+            },
+            {
+              "id": "74961395-f166-5e51-838f-f2875e4a299f",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "a6d95dd8-99b6-5011-b32c-a5ab1d5457f0",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.30000001192092896,
+              "state": "minimal",
+              "value": 86
+            },
+            {
+              "id": "f0be2b75-cd49-59d8-9427-c731f8b4cc77",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 1,
+              "state": "high",
+              "value": 150
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-11T13:35:06+00:00",
+          "scoreDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-17T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.917376+00:00",
+        "updated_at": "2025-06-11T14:31:51.917376+00:00"
+      },
+      {
+        "id": "6cfbd4cf-2856-4375-bc0b-abf49780c13b",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "wellbeing",
+        "score": 0.73,
+        "data": {
+          "id": "7dce2c43-bbb2-580f-8b02-04524de75da2",
+          "type": "wellbeing",
+          "score": 0.73,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "cbcf1aac-ad8e-53ac-b0cf-de7713841f75",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "2b99d070-a493-570a-9706-d9c260405951",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 0.43799999356269836
+            },
+            {
+              "id": "68802bc4-7068-513a-a50d-98cb65056497",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8299999833106995,
+              "state": "high",
+              "value": 0.8330000042915344
+            },
+            {
+              "id": "24c93e16-6b65-5605-bbe1-b84e116335b2",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.38999998569488525,
+              "state": "minimal",
+              "value": 270
+            },
+            {
+              "id": "a0bccbe4-8858-5c7b-9309-ce463f93fafa",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.7099999785423279,
+              "state": "medium",
+              "value": 4010
+            },
+            {
+              "id": "a8330856-a068-5458-b092-b7dc8cdff107",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "584f8d98-ebfb-51a4-8b6e-6a4f9067d50f",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.30000001192092896,
+              "state": "minimal",
+              "value": 86
+            },
+            {
+              "id": "640fca23-0fce-5c49-9402-1a548109f882",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 1,
+              "state": "high",
+              "value": 150
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-11T13:35:07+00:00",
+          "scoreDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-17T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.065928+00:00",
+        "updated_at": "2025-06-11T14:31:51.065928+00:00"
+      },
+      {
+        "id": "c2953c2e-405d-40db-ab37-1541f0056986",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "readiness",
+        "score": 0.8,
+        "data": {
+          "id": "f1fa60e5-3d03-525d-93f6-30c1edbcf0d1",
+          "type": "readiness",
+          "score": 0.8,
+          "state": "high",
+          "factors": [
+            {
+              "id": "28deabe7-cba1-522d-8aa8-4c92ab531aa3",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.5199999809265137,
+              "state": "low",
+              "value": 660
+            },
+            {
+              "id": "07da29f2-be3e-56f9-8512-7f73a7132f61",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 0.43799999356269836
+            },
+            {
+              "id": "d879c8b8-9d2e-53bb-9e59-d13be2ba30a8",
+              "goal": 1,
+              "name": "exercise_strain_capacity",
+              "unit": "index",
+              "score": 0.8600000143051147,
+              "state": "high",
+              "value": 0.8600000143051147
+            },
+            {
+              "id": "28eb28cb-519d-5943-89b1-ecc793d9ad28",
+              "goal": 1,
+              "name": "walking_strain_capacity",
+              "unit": "index",
+              "score": 0.8899999856948853,
+              "state": "high",
+              "value": 0.8899999856948853
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-08T18:53:06+00:00",
+          "scoreDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-17T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:54.751070+00:00",
+        "updated_at": "2025-06-11T14:31:54.751070+00:00"
+      },
+      {
+        "id": "d75d8ff7-1a26-4381-af19-b5b04fe4b65e",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "sleep",
+        "score": 0.68,
+        "data": {
+          "id": "c23ad578-1528-531e-8da5-d4d8139cb55d",
+          "type": "sleep",
+          "score": 0.68,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "ad98e4ea-e07c-59d9-a7b1-bc96a661874e",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.5299999713897705,
+              "state": "low",
+              "value": 660
+            },
+            {
+              "id": "f2f71989-729a-58b4-b4b4-28778a75beb4",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 0.43799999356269836
+            },
+            {
+              "id": "2df2d9a7-f3f4-516f-b18e-76128c83d974",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8299999833106995,
+              "state": "high",
+              "value": 0.8330000042915344
+            },
+            {
+              "id": "ab981553-1529-5baf-8509-37b07371acd1",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.38999998569488525,
+              "state": "minimal",
+              "value": 270
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep"
+          ],
+          "createdAtUtc": "2025-05-17T18:03:18+00:00",
+          "scoreDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-17T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:53.849792+00:00",
+        "updated_at": "2025-06-11T14:31:53.849792+00:00"
+      },
+      {
+        "id": "6960d706-1e87-4c91-9573-fb196477ecdd",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "mental_wellbeing",
+        "score": 0.62,
+        "data": {
+          "id": "9baca119-9efe-563a-a1e5-a77103933924",
+          "type": "mental_wellbeing",
+          "score": 0.62,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "caa55eb7-086a-5b05-9d8a-d619e5ee5734",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.7099999785423279,
+              "state": "medium",
+              "value": 4010
+            },
+            {
+              "id": "5ca6ebd6-7486-52ad-82f5-8580913beca1",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "02c46927-b8f5-5915-b075-d37db5fbf8a0",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 1,
+              "state": "high",
+              "value": 150
+            },
+            {
+              "id": "59036439-1bde-56ff-a48c-5566ab026b85",
+              "goal": 1,
+              "name": "activity_regularity",
+              "unit": "index",
+              "score": 0.5699999928474426,
+              "state": "low",
+              "value": 0.5410000085830688
+            },
+            {
+              "id": "665a9efc-e73a-5eef-b2b0-4a226fd99678",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8299999833106995,
+              "state": "high",
+              "value": 0.8330000042915344
+            },
+            {
+              "id": "8cca0b5d-b9e9-5ab8-9166-6028ffc1f2ca",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.38999998569488525,
+              "state": "minimal",
+              "value": 270
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity",
+            "sleep"
+          ],
+          "createdAtUtc": "2025-06-11T13:35:09+00:00",
+          "scoreDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-17T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:52.967846+00:00",
+        "updated_at": "2025-06-11T14:31:52.967846+00:00"
+      },
+      {
+        "id": "1e81ff32-a74f-4def-8589-091122f0a07c",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "readiness",
+        "score": 0.91,
+        "data": {
+          "id": "d0a1918e-f6e1-5165-bb75-4555625da56d",
+          "type": "readiness",
+          "score": 0.91,
+          "state": "high",
+          "factors": [
+            {
+              "id": "3d7a1491-5e38-5b7a-b24a-067cb0f4133f",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.8199999928474426,
+              "state": "high",
+              "value": 420
+            },
+            {
+              "id": "968b05c9-3b74-55ec-b7cc-fdd644e5b2b5",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 0.9300000071525574,
+              "state": "high",
+              "value": 0.875
+            },
+            {
+              "id": "9afa1241-9577-5f07-a889-3df2d25edc1f",
+              "goal": 1,
+              "name": "walking_strain_capacity",
+              "unit": "index",
+              "score": 0.949999988079071,
+              "state": "high",
+              "value": 0.949999988079071
+            },
+            {
+              "id": "a574dd7c-7d47-5324-a505-15e56c2197a9",
+              "goal": 1,
+              "name": "exercise_strain_capacity",
+              "unit": "index",
+              "score": 0.9300000071525574,
+              "state": "high",
+              "value": 0.9300000071525574
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-08T18:53:06+00:00",
+          "scoreDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-16T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:54.751070+00:00",
+        "updated_at": "2025-06-11T14:31:54.751070+00:00"
+      },
+      {
+        "id": "7d0bc98e-e7df-49b3-94d3-8d7cb2900675",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "mental_wellbeing",
+        "score": 0.68,
+        "data": {
+          "id": "e69957e3-c5b1-5629-97a2-4a0149fd8a80",
+          "type": "mental_wellbeing",
+          "score": 0.68,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "a3e8297a-eb8b-5e98-9c8c-00be70626abe",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.5199999809265137,
+              "state": "low",
+              "value": 2044
+            },
+            {
+              "id": "80b66f40-478f-5b34-a9be-45c776c92418",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "dd1bc6a8-e45c-5a6a-8c48-785991490b06",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 1,
+              "state": "high",
+              "value": 420
+            },
+            {
+              "id": "068517a9-f05d-5121-8987-0b2a6e3cda11",
+              "goal": 1,
+              "name": "activity_regularity",
+              "unit": "index",
+              "score": 0.5899999737739563,
+              "state": "low",
+              "value": 0.515999972820282
+            },
+            {
+              "id": "c9e71aa4-5729-540e-af9d-57f7f221f88d",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8500000238418579,
+              "state": "high",
+              "value": 0.847000002861023
+            },
+            {
+              "id": "15a08d84-2b83-5aab-983e-f88d4e98cadd",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.6600000262260437,
+              "state": "medium",
+              "value": 120
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity",
+            "sleep"
+          ],
+          "createdAtUtc": "2025-06-10T07:17:07+00:00",
+          "scoreDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-16T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:52.967846+00:00",
+        "updated_at": "2025-06-11T14:31:52.967846+00:00"
+      },
+      {
+        "id": "a0534533-067e-4ba4-9b3f-b0e0755a4b38",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "sleep",
+        "score": 0.84,
+        "data": {
+          "id": "6f9d16b5-3545-56c0-b1b4-15a5e3a3a1b4",
+          "type": "sleep",
+          "score": 0.84,
+          "state": "high",
+          "factors": [
+            {
+              "id": "f2aab994-a3e2-5d95-a470-ee7a7945d619",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.8500000238418579,
+              "state": "high",
+              "value": 420
+            },
+            {
+              "id": "941a9c2f-a49d-5109-9cb8-d00493946fff",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 0.949999988079071,
+              "state": "high",
+              "value": 0.875
+            },
+            {
+              "id": "f7c08308-de64-5ad5-906b-8df576209f3f",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8500000238418579,
+              "state": "high",
+              "value": 0.847000002861023
+            },
+            {
+              "id": "0e6518d9-8f24-5a89-80b3-e546e224fb37",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.6600000262260437,
+              "state": "medium",
+              "value": 120
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep"
+          ],
+          "createdAtUtc": "2025-05-16T23:40:33+00:00",
+          "scoreDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-16T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:53.849792+00:00",
+        "updated_at": "2025-06-11T14:31:53.849792+00:00"
+      },
+      {
+        "id": "a974019e-ab63-46e2-a5fb-dcc6c13cacc2",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "activity",
+        "score": 0.58,
+        "data": {
+          "id": "16b2a2f5-d284-5682-9ee3-83a15198615e",
+          "type": "activity",
+          "score": 0.58,
+          "state": "low",
+          "factors": [
+            {
+              "id": "7166916a-bad4-5dba-bc4d-2d2be72c6d30",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.5199999809265137,
+              "state": "low",
+              "value": 2044
+            },
+            {
+              "id": "e689147c-72fe-5e5b-8d74-1237cbb15f84",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "53d1f249-f5d8-50db-a9ab-ce868620c807",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.20000000298023224,
+              "state": "minimal",
+              "value": 39
+            },
+            {
+              "id": "9b1661b0-004f-5ac1-a379-97455f495080",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 1,
+              "state": "high",
+              "value": 420
+            },
+            {
+              "id": "cfa8a9e7-1d2d-5bf4-85e7-0e0949d67059",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 0.7599999904632568,
+              "state": "medium",
+              "value": 7
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-10T07:17:04+00:00",
+          "scoreDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-16T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.917376+00:00",
+        "updated_at": "2025-06-11T14:31:51.917376+00:00"
+      },
+      {
+        "id": "e06a6326-3851-4897-a0ad-ebd5a9677b1d",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "wellbeing",
+        "score": 0.68,
+        "data": {
+          "id": "998ccb03-255d-5671-a44a-f53c8072f02b",
+          "type": "wellbeing",
+          "score": 0.68,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "851c37a6-2fcd-5447-a410-5a0398e85712",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.5199999809265137,
+              "state": "low",
+              "value": 2044
+            },
+            {
+              "id": "01859ac9-bf51-5314-a64a-97f58b51ebc2",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "7e2ac857-7e7b-5f74-9427-bed459ff5f21",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.20000000298023224,
+              "state": "minimal",
+              "value": 39
+            },
+            {
+              "id": "92c30f3b-fcb1-5e32-a6cb-ef6d00ebdb2d",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 1,
+              "state": "high",
+              "value": 420
+            },
+            {
+              "id": "a2e4d806-d3d8-5737-9c1a-49a2ee97a40f",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 0.7599999904632568,
+              "state": "medium",
+              "value": 7
+            },
+            {
+              "id": "be012238-1f22-5cc0-90f8-f87569a6e9fd",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 0.949999988079071,
+              "state": "high",
+              "value": 0.875
+            },
+            {
+              "id": "332a3c26-42bc-5220-a738-891dea85e49c",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8500000238418579,
+              "state": "high",
+              "value": 0.847000002861023
+            },
+            {
+              "id": "bcd5844c-5213-5d5b-ab66-7bb60083aed8",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.6600000262260437,
+              "state": "medium",
+              "value": 120
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-10T07:17:06+00:00",
+          "scoreDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-16T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.065928+00:00",
+        "updated_at": "2025-06-11T14:31:51.065928+00:00"
+      },
+      {
+        "id": "1e449fd6-8fc5-4e69-a3ec-d7a07e4552f1",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "mental_wellbeing",
+        "score": 0.58,
+        "data": {
+          "id": "11773755-d96f-582f-9a88-4f0306c9423b",
+          "type": "mental_wellbeing",
+          "score": 0.58,
+          "state": "low",
+          "factors": [
+            {
+              "id": "230fd5c4-a3ac-5404-bcf7-e832f2d55e32",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.7599999904632568,
+              "state": "medium",
+              "value": 4687
+            },
+            {
+              "id": "e0bc83f3-eb2c-572f-97c8-91892124d68e",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 15
+            },
+            {
+              "id": "683bc4fb-d198-5377-89f6-a41698869cd3",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 180
+            },
+            {
+              "id": "2dcc6c12-5253-5e67-a202-6837b33d4ba4",
+              "goal": 1,
+              "name": "activity_regularity",
+              "unit": "index",
+              "score": 0.5699999928474426,
+              "state": "low",
+              "value": 0.5389999747276306
+            },
+            {
+              "id": "a53ad524-03e0-5082-8b07-a0110c513ed5",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8999999761581421,
+              "state": "high",
+              "value": 0.8960000276565552
+            },
+            {
+              "id": "d99cf2bf-123c-5e51-a3ed-743e550cfd68",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.25,
+              "state": "minimal",
+              "value": 405
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity",
+            "sleep"
+          ],
+          "createdAtUtc": "2025-06-09T23:16:04+00:00",
+          "scoreDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-15T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:52.967846+00:00",
+        "updated_at": "2025-06-11T14:31:52.967846+00:00"
+      },
+      {
+        "id": "6dac668d-de75-4931-bc73-a9d8a2a6f103",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "wellbeing",
+        "score": 0.75,
+        "data": {
+          "id": "d3732764-dd89-5b03-bf91-1e5c23ef9f3f",
+          "type": "wellbeing",
+          "score": 0.75,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "78cbc600-e484-5c62-844d-94e58e179abb",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.7599999904632568,
+              "state": "medium",
+              "value": 4687
+            },
+            {
+              "id": "f2b5fb0f-16e5-5c19-9ff1-55bcd300f811",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 15
+            },
+            {
+              "id": "697e70f7-40e3-5a8e-a2bf-4f3828ae1978",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.33000001311302185,
+              "state": "minimal",
+              "value": 96
+            },
+            {
+              "id": "d5d8456f-340a-5b18-bf2e-0cf3c844891d",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 180
+            },
+            {
+              "id": "62a80ddc-32a8-5169-9ad6-55131abe6225",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 1,
+              "state": "high",
+              "value": 16
+            },
+            {
+              "id": "884be1e5-8d81-5cdb-ad0e-1665085cf374",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "d1e9896a-425d-559c-bc76-9d18dc8a9139",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8999999761581421,
+              "state": "high",
+              "value": 0.8960000276565552
+            },
+            {
+              "id": "9170ca54-b76f-5b0a-a879-1fdf560483f3",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.25,
+              "state": "minimal",
+              "value": 405
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-09T23:16:02+00:00",
+          "scoreDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-15T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.065928+00:00",
+        "updated_at": "2025-06-11T14:31:51.065928+00:00"
+      },
+      {
+        "id": "8c363e74-63fb-43b7-ade1-91c749d1e33d",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "activity",
+        "score": 0.72,
+        "data": {
+          "id": "fc4dbc07-2da5-5e87-bc23-91a72c19fb4a",
+          "type": "activity",
+          "score": 0.72,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "d5d23a27-e596-50fa-b24c-d5cb5159b6af",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.7599999904632568,
+              "state": "medium",
+              "value": 4687
+            },
+            {
+              "id": "42efa17e-98d8-56fa-855f-1010a21bbd21",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 15
+            },
+            {
+              "id": "066ed7a0-eb13-548b-b974-3b3d6ca7a19c",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.33000001311302185,
+              "state": "minimal",
+              "value": 96
+            },
+            {
+              "id": "e90382b2-88cd-5afd-8aec-62f186a9abfe",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 180
+            },
+            {
+              "id": "3a76221e-1178-56fd-97c5-9a40cef20bb1",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 1,
+              "state": "high",
+              "value": 16
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-09T23:16:00+00:00",
+          "scoreDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-15T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.917376+00:00",
+        "updated_at": "2025-06-11T14:31:51.917376+00:00"
+      },
+      {
+        "id": "c07ba8de-92f4-4eaf-a9b0-ab7cc58d4277",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "sleep",
+        "score": 0.83,
+        "data": {
+          "id": "70ec4ccc-31a9-57cf-b94c-5e19d1b031d4",
+          "type": "sleep",
+          "score": 0.83,
+          "state": "high",
+          "factors": [
+            {
+              "id": "e76a142f-dc6d-5ea4-b745-d4e2b704b973",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.8999999761581421,
+              "state": "high",
+              "value": 510
+            },
+            {
+              "id": "72c65a66-3f0c-5d16-a86a-262fd7991a59",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "6bcb9b2a-5a1b-516f-ae49-69cdc742901b",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8999999761581421,
+              "state": "high",
+              "value": 0.8960000276565552
+            },
+            {
+              "id": "30b8d8fb-a6ab-5ae9-b739-3d927da5c3fc",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.25,
+              "state": "minimal",
+              "value": 405
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep"
+          ],
+          "createdAtUtc": "2025-05-16T23:40:33+00:00",
+          "scoreDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-15T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:53.849792+00:00",
+        "updated_at": "2025-06-11T14:31:53.849792+00:00"
+      },
+      {
+        "id": "21ae0871-8b5d-40f1-9df5-b9d27bb753de",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "readiness",
+        "score": 0.89,
+        "data": {
+          "id": "dde90aa5-711f-5e4a-9d02-c41cdf7db640",
+          "type": "readiness",
+          "score": 0.89,
+          "state": "high",
+          "factors": [
+            {
+              "id": "3b437059-3380-5454-9c16-62bd137bc076",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.9100000262260437,
+              "state": "high",
+              "value": 510
+            },
+            {
+              "id": "e6981313-53a1-5edf-9a1e-faf5d06fabbc",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "a1679f01-d5f7-53f8-8fda-c26453f5b268",
+              "goal": 1,
+              "name": "walking_strain_capacity",
+              "unit": "index",
+              "score": 0.8700000047683716,
+              "state": "high",
+              "value": 0.8700000047683716
+            },
+            {
+              "id": "a2239e1a-670f-52c4-934d-a9794d3ae646",
+              "goal": 1,
+              "name": "exercise_strain_capacity",
+              "unit": "index",
+              "score": 0.8299999833106995,
+              "state": "high",
+              "value": 0.8299999833106995
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-11T13:35:11+00:00",
+          "scoreDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-15T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:54.751070+00:00",
+        "updated_at": "2025-06-11T14:31:54.751070+00:00"
+      },
+      {
+        "id": "cc478a75-3082-4a06-bdf6-aed9c0262e56",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "mental_wellbeing",
+        "score": 0.66,
+        "data": {
+          "id": "8e35d100-b601-5543-9b77-cd09c48cb166",
+          "type": "mental_wellbeing",
+          "score": 0.66,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "c54d4cea-0c0c-56c4-ad0f-79e52eeb04b4",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 1,
+              "state": "high",
+              "value": 10763
+            },
+            {
+              "id": "c195c866-76a8-59e1-9b0c-c7aa17543af9",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "0341f099-870b-5710-a1db-e286003690c9",
+              "goal": 1,
+              "name": "activity_regularity",
+              "unit": "index",
+              "score": 0.5899999737739563,
+              "state": "low",
+              "value": 0.5239999890327454
+            },
+            {
+              "id": "efbdb17c-6df7-586c-844f-86e42cacaefc",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8799999952316284,
+              "state": "high",
+              "value": 0.875
+            },
+            {
+              "id": "361bfc9e-8acc-5374-82e4-f6469a4f9f8d",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.25999999046325684,
+              "state": "minimal",
+              "value": 390
+            },
+            {
+              "id": "9a56d3d6-9c21-5015-91ff-999a8f9d3487",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 270
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity",
+            "sleep"
+          ],
+          "createdAtUtc": "2025-06-08T18:53:04+00:00",
+          "scoreDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-14T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:52.967846+00:00",
+        "updated_at": "2025-06-11T14:31:52.967846+00:00"
+      },
+      {
+        "id": "3dc75a10-c27d-4d10-a417-e47437edf9a2",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "sleep",
+        "score": 0.8,
+        "data": {
+          "id": "cd146eb6-ec07-5a78-91b4-09dcc89bb41c",
+          "type": "sleep",
+          "score": 0.8,
+          "state": "high",
+          "factors": [
+            {
+              "id": "eec4aa18-f78e-52a3-9420-960546318742",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.8199999928474426,
+              "state": "high",
+              "value": 540
+            },
+            {
+              "id": "cbbb31d5-c27d-5459-9f34-092551627ce2",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "7c57b9ec-c0c0-51a7-89d8-e2cd639d0e2d",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8799999952316284,
+              "state": "high",
+              "value": 0.875
+            },
+            {
+              "id": "a1c92e02-a349-5876-a14d-bae094111f29",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.25999999046325684,
+              "state": "minimal",
+              "value": 390
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep"
+          ],
+          "createdAtUtc": "2025-05-16T23:40:33+00:00",
+          "scoreDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-14T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:53.849792+00:00",
+        "updated_at": "2025-06-11T14:31:53.849792+00:00"
+      },
+      {
+        "id": "ab8738c0-e74d-4d6e-baab-16cf8418416b",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "activity",
+        "score": 0.89,
+        "data": {
+          "id": "d6eff01e-69f1-5ea8-b06d-27e821c5e2c0",
+          "type": "activity",
+          "score": 0.89,
+          "state": "high",
+          "factors": [
+            {
+              "id": "97639f4c-0d14-5498-8a0a-0b94dc4d96cf",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 1,
+              "state": "high",
+              "value": 10763
+            },
+            {
+              "id": "1d962c78-50c6-561b-b477-50e5fa05a161",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "cd7fd885-dc01-51b7-8275-8dfc0fb382ae",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.6299999952316284,
+              "state": "low",
+              "value": 287
+            },
+            {
+              "id": "5f7e3a0f-d291-57cb-9f54-6219f1d21c12",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 270
+            },
+            {
+              "id": "ef5e8275-8f79-52a2-b422-8faf7980361e",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 1,
+              "state": "high",
+              "value": 15
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-08T18:53:01+00:00",
+          "scoreDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-14T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.917376+00:00",
+        "updated_at": "2025-06-11T14:31:51.917376+00:00"
+      },
+      {
+        "id": "5b2dadf9-7dd0-4bfa-adf2-e256b5edd7ed",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "wellbeing",
+        "score": 0.85,
+        "data": {
+          "id": "7b3a8a3d-3609-5aa0-b488-4835608dd61c",
+          "type": "wellbeing",
+          "score": 0.85,
+          "state": "high",
+          "factors": [
+            {
+              "id": "6f5ebb31-6aa6-5286-9a97-9b8875294ad7",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 1,
+              "state": "high",
+              "value": 10763
+            },
+            {
+              "id": "dad83d4b-60e9-5f5a-bec2-8a233e36e6b9",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 13
+            },
+            {
+              "id": "d873371d-b229-5373-a936-7352650b2a6f",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.6299999952316284,
+              "state": "medium",
+              "value": 287
+            },
+            {
+              "id": "784e4e12-3478-534c-b75f-3b04509c8cf0",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 1,
+              "state": "high",
+              "value": 15
+            },
+            {
+              "id": "3c32d7ad-5e6b-58af-b49d-8a85748a63b8",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "004a1cce-4cb4-5498-a740-2cdf67bb193d",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8799999952316284,
+              "state": "high",
+              "value": 0.875
+            },
+            {
+              "id": "7f99ff56-1ca1-564a-bc78-588555ee6219",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.25999999046325684,
+              "state": "minimal",
+              "value": 390
+            },
+            {
+              "id": "bd6bf36d-a92c-5ec5-8ab0-71cd5470c2f2",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 270
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-08T18:53:02+00:00",
+          "scoreDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-14T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.065928+00:00",
+        "updated_at": "2025-06-11T14:31:51.065928+00:00"
+      },
+      {
+        "id": "5f31be59-8180-4359-b5f1-f67452f78a6b",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "readiness",
+        "score": 0.67,
+        "data": {
+          "id": "7ffd5003-7c9d-597b-9173-fc467b1623bc",
+          "type": "readiness",
+          "score": 0.67,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "5c01d0c6-f2a9-5f89-b2a6-8502f2ee4e70",
+              "goal": 1,
+              "name": "exercise_strain_capacity",
+              "unit": "index",
+              "score": 0.49000000953674316,
+              "state": "low",
+              "value": 0.49000000953674316
+            },
+            {
+              "id": "2b5c0ebf-392e-5fb2-9ecc-8d7073263b1c",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.8199999928474426,
+              "state": "high",
+              "value": 540
+            },
+            {
+              "id": "a82dd160-e157-54a4-a7d4-0e9fada4c2a8",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "a6b179ff-735f-5b25-8b97-728c5fdcafdd",
+              "goal": 1,
+              "name": "walking_strain_capacity",
+              "unit": "index",
+              "score": 0.5699999928474426,
+              "state": "low",
+              "value": 0.5699999928474426
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-10T17:32:36+00:00",
+          "scoreDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-14T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:54.751070+00:00",
+        "updated_at": "2025-06-11T14:31:54.751070+00:00"
+      },
+      {
+        "id": "24c95dff-dbb7-4032-936e-685dabb6887f",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "wellbeing",
+        "score": 0.7,
+        "data": {
+          "id": "cc7b07bc-d63d-5238-a0e0-b960e364c445",
+          "type": "wellbeing",
+          "score": 0.7,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "2f4a3ac1-788d-56d5-b909-d9ad3b38848e",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "cf09662d-ed5d-5d20-9a39-a7f8c255bdbc",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8799999952316284,
+              "state": "high",
+              "value": 0.875
+            },
+            {
+              "id": "5459c266-589f-550b-84f7-72215296ee86",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.20000000298023224,
+              "state": "minimal",
+              "value": 465
+            },
+            {
+              "id": "4767561f-1550-57a1-af4b-5b26d58f0e87",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.6399999856948853,
+              "state": "medium",
+              "value": 3220
+            },
+            {
+              "id": "bf8fbbba-16b6-5399-a2f2-de097d7a4e08",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 12
+            },
+            {
+              "id": "3848ba75-47ae-5e78-958c-e048862cd808",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.25999999046325684,
+              "state": "minimal",
+              "value": 65
+            },
+            {
+              "id": "e3528ad3-bbab-5785-a92b-57d3205376cf",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 240
+            },
+            {
+              "id": "b42a7583-2e8d-5857-8bcb-2835308a5733",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 1,
+              "state": "high",
+              "value": 12
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-08T18:53:02+00:00",
+          "scoreDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-13T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.065928+00:00",
+        "updated_at": "2025-06-11T14:31:51.065928+00:00"
+      },
+      {
+        "id": "97871414-65c6-41c6-b0b7-02912c34fc20",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "activity",
+        "score": 0.66,
+        "data": {
+          "id": "e2bac5da-5c2e-5ce7-9b1f-7b5a6d845c10",
+          "type": "activity",
+          "score": 0.66,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "54a53bf8-8bf7-5b02-9fbb-67128fa68bd5",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.6399999856948853,
+              "state": "low",
+              "value": 3220
+            },
+            {
+              "id": "d38fcb72-d82f-5e2f-ac44-ad9ad9921a99",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 12
+            },
+            {
+              "id": "421c8f9b-e3fa-56ef-9b27-2cf1be15f44b",
+              "goal": 500,
+              "name": "active_calories",
+              "unit": "kcal",
+              "score": 0.25999999046325684,
+              "state": "minimal",
+              "value": 65
+            },
+            {
+              "id": "dc94aed6-d1dd-5714-a966-7bbf6d8f71cf",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 240
+            },
+            {
+              "id": "a2f265d4-bc5b-5bbf-a79c-eb30633211cf",
+              "goal": 10,
+              "name": "floors_climbed",
+              "unit": "floor",
+              "score": 1,
+              "state": "high",
+              "value": 12
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-08T18:53:01+00:00",
+          "scoreDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-13T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:51.917376+00:00",
+        "updated_at": "2025-06-11T14:31:51.917376+00:00"
+      },
+      {
+        "id": "5172f9aa-eb75-4fcc-8d22-3e3a6da450d6",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "mental_wellbeing",
+        "score": 0.52,
+        "data": {
+          "id": "d3d678b8-89b9-591a-8991-74cd000d89e9",
+          "type": "mental_wellbeing",
+          "score": 0.52,
+          "state": "low",
+          "factors": [
+            {
+              "id": "3bf127c0-e496-5a46-a38f-d0690f30c28d",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8799999952316284,
+              "state": "high",
+              "value": 0.875
+            },
+            {
+              "id": "7351b03a-0d61-5197-af88-25250a965eee",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.20000000298023224,
+              "state": "minimal",
+              "value": 465
+            },
+            {
+              "id": "c1d9bac4-9d28-5cf1-bb2b-03bf00aab601",
+              "goal": 10000,
+              "name": "steps",
+              "unit": "count",
+              "score": 0.6399999856948853,
+              "state": "medium",
+              "value": 3220
+            },
+            {
+              "id": "8b1d267b-aa97-5a32-a50c-3fd15e07f7b8",
+              "goal": 10,
+              "name": "active_hours",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 12
+            },
+            {
+              "id": "01a3f82f-d3b8-5595-a973-e21de99b57cb",
+              "goal": 600,
+              "name": "extended_inactivity",
+              "unit": "minute",
+              "score": 0.9700000286102295,
+              "state": "high",
+              "value": 240
+            },
+            {
+              "id": "e8a83c52-4236-5dc0-aa1a-e4124d69800b",
+              "goal": 1,
+              "name": "activity_regularity",
+              "unit": "index",
+              "score": 0.550000011920929,
+              "state": "low",
+              "value": 0.5619999766349792
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "activity",
+            "sleep"
+          ],
+          "createdAtUtc": "2025-06-08T18:53:04+00:00",
+          "scoreDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-13T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:52.967846+00:00",
+        "updated_at": "2025-06-11T14:31:52.967846+00:00"
+      },
+      {
+        "id": "3d711ce1-8dd0-4595-a0a7-9dd260d98a08",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "sleep",
+        "score": 0.76,
+        "data": {
+          "id": "5340aa33-5d8c-5358-8b58-df6de69cb239",
+          "type": "sleep",
+          "score": 0.76,
+          "state": "medium",
+          "factors": [
+            {
+              "id": "b84596ba-513b-5901-90c6-8e22b2188d24",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.7400000095367432,
+              "state": "medium",
+              "value": 570
+            },
+            {
+              "id": "45d88ffa-a3a2-5b4e-a91c-963cdf9976e2",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "d96f5cb1-6063-5d6d-9466-b3b316518eac",
+              "goal": 1,
+              "name": "sleep_regularity",
+              "unit": "index",
+              "score": 0.8799999952316284,
+              "state": "high",
+              "value": 0.875
+            },
+            {
+              "id": "3298dd94-2af9-542f-be24-fa11e0a7a38f",
+              "goal": 30,
+              "name": "circadian_alignment",
+              "unit": "minute",
+              "score": 0.20000000298023224,
+              "state": "minimal",
+              "value": 465
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep"
+          ],
+          "createdAtUtc": "2025-05-16T23:40:33+00:00",
+          "scoreDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-13T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:53.849792+00:00",
+        "updated_at": "2025-06-11T14:31:53.849792+00:00"
+      },
+      {
+        "id": "20107afd-c6ee-44ef-9536-84e41805142b",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "type": "readiness",
+        "score": 0.88,
+        "data": {
+          "id": "992a1aa3-61fa-5e59-9f10-6dce252c4d19",
+          "type": "readiness",
+          "score": 0.88,
+          "state": "high",
+          "factors": [
+            {
+              "id": "4cd01710-6c16-5803-bb33-042f5dc1b16b",
+              "goal": 480,
+              "name": "sleep_duration",
+              "unit": "minute",
+              "score": 0.7400000095367432,
+              "state": "medium",
+              "value": 570
+            },
+            {
+              "id": "d3a81648-b2b3-5c41-9472-9b333ff4ab02",
+              "goal": 0,
+              "name": "sleep_debt",
+              "unit": "hour",
+              "score": 1,
+              "state": "high",
+              "value": 0
+            },
+            {
+              "id": "b3cacc4f-1b8b-5be3-a745-28fb21d847d5",
+              "goal": 1,
+              "name": "walking_strain_capacity",
+              "unit": "index",
+              "score": 0.9200000166893005,
+              "state": "high",
+              "value": 0.9200000166893005
+            },
+            {
+              "id": "8df754f8-6e42-5acc-bef9-757ddb6aed85",
+              "goal": 1,
+              "name": "exercise_strain_capacity",
+              "unit": "index",
+              "score": 0.8899999856948853,
+              "state": "high",
+              "value": 0.8899999856948853
+            }
+          ],
+          "version": 1,
+          "dataSources": [
+            "sleep",
+            "activity"
+          ],
+          "createdAtUtc": "2025-06-11T13:35:11+00:00",
+          "scoreDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "score_date_time": "2025-05-13T04:00:00+00:00",
+        "created_at": "2025-06-11T14:31:54.751070+00:00",
+        "updated_at": "2025-06-11T14:31:54.751070+00:00"
+      }
+    ],
+    "archetypes": [
+      {
+        "id": "50b141a7-404f-46ea-860e-70c4e7469883",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "name": "bed",
+        "periodicity": "schedule_weekly",
+        "value": "very_late_sleeper",
+        "data": {
+          "id": "2ff227a1-5895-530a-9f58-67acd180f5df",
+          "name": "bed_schedule",
+          "value": "very_late_sleeper",
+          "version": 1,
+          "dataType": "ordinal",
+          "ordinality": 3,
+          "endDateTime": "2025-05-18T00:00:00-04:00",
+          "periodicity": "weekly",
+          "startDateTime": "2025-05-12T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T04:00:00+00:00",
+        "end_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:32:01.176657+00:00",
+        "updated_at": "2025-06-11T14:32:01.176657+00:00"
+      },
+      {
+        "id": "98f0037f-333a-4a34-babf-5dc921476a29",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "name": "activity",
+        "periodicity": "level_weekly",
+        "value": "moderately_active",
+        "data": {
+          "id": "f0cdfd07-2feb-57ec-bdee-42541229de4e",
+          "name": "activity_level",
+          "value": "moderately_active",
+          "version": 1,
+          "dataType": "ordinal",
+          "ordinality": 2,
+          "endDateTime": "2025-05-18T00:00:00-04:00",
+          "periodicity": "weekly",
+          "startDateTime": "2025-05-12T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T04:00:00+00:00",
+        "end_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:32:02.002969+00:00",
+        "updated_at": "2025-06-11T14:32:02.002969+00:00"
+      },
+      {
+        "id": "56b6b18b-770e-4bc4-8b6e-6dfe43b76b4e",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "name": "overall",
+        "periodicity": "wellness_weekly",
+        "value": "good_wellness",
+        "data": {
+          "id": "5ee1880b-cf7a-56fa-98f6-21ae3d493a69",
+          "name": "overall_wellness",
+          "value": "good_wellness",
+          "version": 1,
+          "dataType": "ordinal",
+          "ordinality": 2,
+          "endDateTime": "2025-05-18T00:00:00-04:00",
+          "periodicity": "weekly",
+          "startDateTime": "2025-05-12T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T04:00:00+00:00",
+        "end_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:32:02.310326+00:00",
+        "updated_at": "2025-06-11T14:32:02.310326+00:00"
+      },
+      {
+        "id": "c7515eb2-b1f1-4ea0-9958-cab2073dabfb",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "name": "mental",
+        "periodicity": "wellness_weekly",
+        "value": "good_mental_wellness",
+        "data": {
+          "id": "82283505-f2f6-515d-8782-69de77a93f02",
+          "name": "mental_wellness",
+          "value": "good_mental_wellness",
+          "version": 1,
+          "dataType": "ordinal",
+          "ordinality": 2,
+          "endDateTime": "2025-05-18T00:00:00-04:00",
+          "periodicity": "weekly",
+          "startDateTime": "2025-05-12T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T04:00:00+00:00",
+        "end_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:32:03.093181+00:00",
+        "updated_at": "2025-06-11T14:32:03.093181+00:00"
+      },
+      {
+        "id": "7952e927-fc4f-4b01-a56f-2994482d2347",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "name": "sleep",
+        "periodicity": "regularity_weekly",
+        "value": "regular_sleeper",
+        "data": {
+          "id": "671b2d8c-c72c-5fc2-97c9-c788823ddb10",
+          "name": "sleep_regularity",
+          "value": "regular_sleeper",
+          "version": 1,
+          "dataType": "ordinal",
+          "ordinality": 2,
+          "endDateTime": "2025-05-18T00:00:00-04:00",
+          "periodicity": "weekly",
+          "startDateTime": "2025-05-12T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T04:00:00+00:00",
+        "end_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:32:03.388456+00:00",
+        "updated_at": "2025-06-11T14:32:03.388456+00:00"
+      },
+      {
+        "id": "153a8c57-f319-43a9-8b80-1d6d7b66ca57",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "name": "wake",
+        "periodicity": "schedule_weekly",
+        "value": "very_late_riser",
+        "data": {
+          "id": "2c63a5d8-fd1b-52d9-a94e-c48d1fa11965",
+          "name": "wake_schedule",
+          "value": "very_late_riser",
+          "version": 1,
+          "dataType": "ordinal",
+          "ordinality": 3,
+          "endDateTime": "2025-05-18T00:00:00-04:00",
+          "periodicity": "weekly",
+          "startDateTime": "2025-05-12T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T04:00:00+00:00",
+        "end_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:32:04.170171+00:00",
+        "updated_at": "2025-06-11T14:32:04.170171+00:00"
+      },
+      {
+        "id": "880bab6b-8578-4b86-bd20-c32e6fce6e40",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "name": "sleep",
+        "periodicity": "pattern_weekly",
+        "value": "early_morning_sleeper",
+        "data": {
+          "id": "e2c5f241-2110-54d4-828b-f8170bca515a",
+          "name": "sleep_pattern",
+          "value": "early_morning_sleeper",
+          "version": 1,
+          "dataType": "categorical",
+          "ordinality": 0,
+          "endDateTime": "2025-05-18T00:00:00-04:00",
+          "periodicity": "weekly",
+          "startDateTime": "2025-05-12T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T04:00:00+00:00",
+        "end_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:32:04.988371+00:00",
+        "updated_at": "2025-06-11T14:32:04.988371+00:00"
+      },
+      {
+        "id": "67de7cdd-95aa-4fa0-96da-2ab536443473",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "name": "sleep",
+        "periodicity": "quality_weekly",
+        "value": "good_sleep_quality",
+        "data": {
+          "id": "f472d8bc-24f0-59bf-ac1a-51d588ede543",
+          "name": "sleep_quality",
+          "value": "good_sleep_quality",
+          "version": 1,
+          "dataType": "ordinal",
+          "ordinality": 2,
+          "endDateTime": "2025-05-18T00:00:00-04:00",
+          "periodicity": "weekly",
+          "startDateTime": "2025-05-12T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T04:00:00+00:00",
+        "end_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:32:05.834475+00:00",
+        "updated_at": "2025-06-11T14:32:05.834475+00:00"
+      },
+      {
+        "id": "a12e1e99-fc90-4672-9f7b-6e7d089628ad",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "name": "sleep",
+        "periodicity": "duration_weekly",
+        "value": "long_sleeper",
+        "data": {
+          "id": "75bb4420-d8b2-5be0-8a62-024c261f4fa5",
+          "name": "sleep_duration",
+          "value": "long_sleeper",
+          "version": 1,
+          "dataType": "ordinal",
+          "ordinality": 3,
+          "endDateTime": "2025-05-18T00:00:00-04:00",
+          "periodicity": "weekly",
+          "startDateTime": "2025-05-12T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T04:00:00+00:00",
+        "end_date_time": "2025-05-18T04:00:00+00:00",
+        "created_at": "2025-06-11T14:32:06.128545+00:00",
+        "updated_at": "2025-06-11T14:32:06.128545+00:00"
+      }
+    ],
+    "biomarkers": [
+      {
+        "id": "c044c878-d532-424d-8561-c0bee601c166",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_mid_time",
+        "data": {
+          "id": "289dce10-fa91-5803-8219-57d10cbf5ad4",
+          "type": "sleep_mid_time",
+          "unit": "datetime",
+          "value": "2025-05-18T06:20:04-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-18T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T22:00:00+00:00",
+        "end_date_time": "2025-05-18T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "20c00688-e2ec-40b6-ae3e-194091785a66",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_duration",
+        "data": {
+          "id": "0ea658a4-f189-51f2-9502-5f1865eed1f4",
+          "type": "sleep_duration",
+          "unit": "minute",
+          "value": "757",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-18T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T22:00:00+00:00",
+        "end_date_time": "2025-05-18T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "02d3a4e9-f78b-4b89-811a-8af979a2df96",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_start_time",
+        "data": {
+          "id": "b66f68b4-860f-5153-b4ca-aeb25826e0a2",
+          "type": "sleep_start_time",
+          "unit": "datetime",
+          "value": "2025-05-17T23:40:08-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-18T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T22:00:00+00:00",
+        "end_date_time": "2025-05-18T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "13b10711-8cd8-440f-9adf-82a45b702286",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_end_time",
+        "data": {
+          "id": "c025e53d-072a-5eae-948e-50902ee6ebd3",
+          "type": "sleep_end_time",
+          "unit": "datetime",
+          "value": "2025-05-18T13:00-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-18T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T22:00:00+00:00",
+        "end_date_time": "2025-05-18T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "25c1e09e-b8a8-4c46-b24f-572a2e3c40b6",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_in_bed_duration",
+        "data": {
+          "id": "bbf5cb2e-acf7-5165-ae64-716e0d847e08",
+          "type": "sleep_in_bed_duration",
+          "unit": "minute",
+          "value": "757",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-18T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T22:00:00+00:00",
+        "end_date_time": "2025-05-18T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "a17b08c7-f84b-48b8-9aa8-4c69d56f0769",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "steps",
+        "data": {
+          "id": "c92c1948-3c38-5de4-afb3-7a05d0eba969",
+          "type": "steps",
+          "unit": "count",
+          "value": "4010",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-17T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T04:00:00+00:00",
+        "end_date_time": "2025-05-18T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "4c317f63-d508-4d80-97ae-0bf0e6b96947",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_duration",
+        "data": {
+          "id": "fc4ed470-461a-5454-93e4-0436b2e21483",
+          "type": "active_duration",
+          "unit": "minute",
+          "value": "629",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-17T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T04:00:00+00:00",
+        "end_date_time": "2025-05-18T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "7d5d376f-937a-4bf0-9415-ed01788f96c6",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "floors_climbed",
+        "data": {
+          "id": "b1e207bb-853b-5fd5-8c2b-b93e41d287b7",
+          "type": "floors_climbed",
+          "unit": "count",
+          "value": "13",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-17T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T04:00:00+00:00",
+        "end_date_time": "2025-05-18T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "1087d88e-c08b-48eb-af60-0c2b5465c064",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_energy_burned",
+        "data": {
+          "id": "ce37799a-beed-5b4d-be17-669fe6406e13",
+          "type": "active_energy_burned",
+          "unit": "kcal",
+          "value": "86",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-17T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T04:00:00+00:00",
+        "end_date_time": "2025-05-18T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "3a8d9fa3-67ab-444e-9e00-c46b49e83644",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "activity_low_intensity_duration",
+        "data": {
+          "id": "ff968252-da93-5f58-b26e-6752c2358b20",
+          "type": "activity_low_intensity_duration",
+          "unit": "minute",
+          "value": "629",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-17T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T04:00:00+00:00",
+        "end_date_time": "2025-05-18T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "a2fc6ce6-e2fa-455d-9655-4009c1507f30",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_hours",
+        "data": {
+          "id": "44009ff5-98e0-5656-b418-7e8552930620",
+          "type": "active_hours",
+          "unit": "hour",
+          "value": "13",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-17T23:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T04:00:00+00:00",
+        "end_date_time": "2025-05-18T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "881fe278-99ce-445a-b7bf-99adbd22a83d",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "activity_sedentary_duration",
+        "data": {
+          "id": "b05612d7-9108-5c5d-9db0-9b5e57b963fe",
+          "type": "activity_sedentary_duration",
+          "unit": "minute",
+          "value": "150",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-17T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-17T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-17T04:00:00+00:00",
+        "end_date_time": "2025-05-18T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "74a5da68-1ca0-49e0-8ef2-27a5037edca4",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_end_time",
+        "data": {
+          "id": "6d8561c8-26d4-5f50-8739-c28ca76fb795",
+          "type": "sleep_end_time",
+          "unit": "datetime",
+          "value": "2025-05-17T13:00-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-17T17:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-16T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T22:00:00+00:00",
+        "end_date_time": "2025-05-17T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "dceb4483-89ad-4de8-9cff-93871256d4d7",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_duration",
+        "data": {
+          "id": "d6764fd3-0e9d-5b28-a2f0-71f6f34e5db9",
+          "type": "sleep_duration",
+          "unit": "minute",
+          "value": "660",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-17T17:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-16T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T22:00:00+00:00",
+        "end_date_time": "2025-05-17T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "f0f8a78f-119e-406e-ba2e-bfcc75934602",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_mid_time",
+        "data": {
+          "id": "c41a4b14-53f4-5047-935a-bf5d407b28f8",
+          "type": "sleep_mid_time",
+          "unit": "datetime",
+          "value": "2025-05-17T07:30-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-17T17:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-16T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T22:00:00+00:00",
+        "end_date_time": "2025-05-17T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "8dffab57-b78c-4066-96f3-acb216c90001",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_start_time",
+        "data": {
+          "id": "61d3e328-5d2c-5fa6-99ef-ae074802afcb",
+          "type": "sleep_start_time",
+          "unit": "datetime",
+          "value": "2025-05-17T02:00-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-17T17:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-16T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T22:00:00+00:00",
+        "end_date_time": "2025-05-17T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "c1fc083c-fc3b-4ae4-a0e3-793d5a1b1da8",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_in_bed_duration",
+        "data": {
+          "id": "aa962560-fb92-5196-b324-8612e60db60c",
+          "type": "sleep_in_bed_duration",
+          "unit": "minute",
+          "value": "660",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-17T17:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-16T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T22:00:00+00:00",
+        "end_date_time": "2025-05-17T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "982659f8-bd8f-4420-89c1-5a846e4bdc2b",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_duration",
+        "data": {
+          "id": "19a7b5c3-f4ec-55fb-94b1-9fd02c43bce8",
+          "type": "active_duration",
+          "unit": "minute",
+          "value": "599",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-16T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T04:00:00+00:00",
+        "end_date_time": "2025-05-17T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "8b689ccb-19cf-47f4-8fbd-945d777c5eaa",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "steps",
+        "data": {
+          "id": "fd39ee1b-dbe1-5049-b48e-c1762afe1f6f",
+          "type": "steps",
+          "unit": "count",
+          "value": "2044",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-16T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T04:00:00+00:00",
+        "end_date_time": "2025-05-17T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "aa3b1413-0778-4aab-ae4f-70b3bd10d9fa",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "floors_climbed",
+        "data": {
+          "id": "e1ee0f9b-8ac7-544e-94fe-365ee3f6c67d",
+          "type": "floors_climbed",
+          "unit": "count",
+          "value": "7",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-16T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T04:00:00+00:00",
+        "end_date_time": "2025-05-17T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "88e28914-ab9b-468e-9fae-84d153313712",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "activity_sedentary_duration",
+        "data": {
+          "id": "aa5a70e0-8a25-53d9-9f17-b9e9174b5a36",
+          "type": "activity_sedentary_duration",
+          "unit": "minute",
+          "value": "420",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-16T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T04:00:00+00:00",
+        "end_date_time": "2025-05-17T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:29.834529+00:00",
+        "updated_at": "2025-06-11T14:31:29.834529+00:00"
+      },
+      {
+        "id": "874434ac-e31f-4ebd-8c26-07374fd676fe",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "activity_low_intensity_duration",
+        "data": {
+          "id": "3c8a8ccd-45e1-528a-b890-6bcd8dd7f9cb",
+          "type": "activity_low_intensity_duration",
+          "unit": "minute",
+          "value": "599",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-16T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T04:00:00+00:00",
+        "end_date_time": "2025-05-17T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "1906eb18-100c-4496-a491-ac7801e1095e",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_energy_burned",
+        "data": {
+          "id": "2c43a2f5-2467-5d76-a271-0434dc0d2bee",
+          "type": "active_energy_burned",
+          "unit": "kcal",
+          "value": "39",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-16T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T04:00:00+00:00",
+        "end_date_time": "2025-05-17T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "91352263-a8f5-4e3d-b491-1022f986754e",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_hours",
+        "data": {
+          "id": "56765b7e-366f-512c-9c32-392684986113",
+          "type": "active_hours",
+          "unit": "hour",
+          "value": "13",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-16T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-16T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-16T04:00:00+00:00",
+        "end_date_time": "2025-05-17T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "0e56a10f-677e-4ac9-ad36-e6fd72f15aee",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_in_bed_duration",
+        "data": {
+          "id": "24682ba7-0dcd-57b9-97a3-be316d5045a1",
+          "type": "sleep_in_bed_duration",
+          "unit": "minute",
+          "value": "420",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-16T17:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-15T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T22:00:00+00:00",
+        "end_date_time": "2025-05-16T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "56a18f00-8237-43e8-89de-8dddfeffdabf",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_end_time",
+        "data": {
+          "id": "fc3e6d0a-adb7-5df1-a144-8f8d59d533f8",
+          "type": "sleep_end_time",
+          "unit": "datetime",
+          "value": "2025-05-16T08:30-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-16T17:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-15T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T22:00:00+00:00",
+        "end_date_time": "2025-05-16T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "587eb5a7-d7b4-4e94-97f8-33267ee5244d",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_mid_time",
+        "data": {
+          "id": "b5e064b9-b0af-599a-b1b3-25050c35ec26",
+          "type": "sleep_mid_time",
+          "unit": "datetime",
+          "value": "2025-05-16T05:00-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-16T17:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-15T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T22:00:00+00:00",
+        "end_date_time": "2025-05-16T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "01d01476-a22e-49ed-bac6-8719ca7025db",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_duration",
+        "data": {
+          "id": "817d494a-12e8-5f9c-8568-5ad75c6f18a4",
+          "type": "sleep_duration",
+          "unit": "minute",
+          "value": "420",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-16T17:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-15T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T22:00:00+00:00",
+        "end_date_time": "2025-05-16T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "ae81193b-49e7-46d3-932c-7fed8e41e598",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_start_time",
+        "data": {
+          "id": "ee4d4833-9a23-5202-96f6-219e86df66cb",
+          "type": "sleep_start_time",
+          "unit": "datetime",
+          "value": "2025-05-16T01:30-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-16T17:59:59-04:00",
+          "periodicity": "intraday",
+          "startDateTime": "2025-05-15T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T22:00:00+00:00",
+        "end_date_time": "2025-05-16T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "e81cb75e-b90e-484a-8846-92f46d8035dc",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_hours",
+        "data": {
+          "id": "73fa313a-01a6-5876-a107-d91b85fa5d4a",
+          "type": "active_hours",
+          "unit": "hour",
+          "value": "15",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-15T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T04:00:00+00:00",
+        "end_date_time": "2025-05-16T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "7c2eb344-269e-4a94-a63e-300b89491751",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_energy_burned",
+        "data": {
+          "id": "5fbe3767-d0d6-5aa7-8ce7-fe014c2d0221",
+          "type": "active_energy_burned",
+          "unit": "kcal",
+          "value": "96",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-15T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T04:00:00+00:00",
+        "end_date_time": "2025-05-16T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "afaa4123-dcb9-4e51-b035-1b3e41bab957",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "activity_low_intensity_duration",
+        "data": {
+          "id": "51432651-4cf8-57b2-8674-9f6143321af4",
+          "type": "activity_low_intensity_duration",
+          "unit": "minute",
+          "value": "749",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-15T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T04:00:00+00:00",
+        "end_date_time": "2025-05-16T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "a718520a-4713-4135-9ffb-6f8d26642bdf",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_duration",
+        "data": {
+          "id": "20c0ff2d-2ae1-560a-a95a-d19057422304",
+          "type": "active_duration",
+          "unit": "minute",
+          "value": "749",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-15T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T04:00:00+00:00",
+        "end_date_time": "2025-05-16T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "6e76b728-6061-4491-b533-bf59302e70bb",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "steps",
+        "data": {
+          "id": "74e95c75-a794-5420-9514-56fa96f5e92c",
+          "type": "steps",
+          "unit": "count",
+          "value": "4687",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-15T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T04:00:00+00:00",
+        "end_date_time": "2025-05-16T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "55b77a23-b535-4844-8e25-53e8ad596c8b",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "floors_climbed",
+        "data": {
+          "id": "1a12345f-6b47-50e5-8379-e4845c066fb7",
+          "type": "floors_climbed",
+          "unit": "count",
+          "value": "16",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-15T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T04:00:00+00:00",
+        "end_date_time": "2025-05-16T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "2e9556a8-d61d-4c8a-94f1-9631de702e2e",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "activity_sedentary_duration",
+        "data": {
+          "id": "5dbb00dd-b0c6-5086-8333-421aabfb88cd",
+          "type": "activity_sedentary_duration",
+          "unit": "minute",
+          "value": "180",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-15T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-15T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-15T04:00:00+00:00",
+        "end_date_time": "2025-05-16T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "5f4a81fd-5d0b-4a50-a46c-42fcdd8e9ca3",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_start_time",
+        "data": {
+          "id": "021f9188-11cc-5cf1-b36c-8fbed23f5c33",
+          "type": "sleep_start_time",
+          "unit": "datetime",
+          "value": "2025-05-15T05:30-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-15T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T22:00:00+00:00",
+        "end_date_time": "2025-05-15T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "2818a401-791c-4fb7-8938-478f45bbafe1",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_in_bed_duration",
+        "data": {
+          "id": "4f3d7197-0451-541d-9c0a-a4d7ebd60a6c",
+          "type": "sleep_in_bed_duration",
+          "unit": "minute",
+          "value": "510",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-15T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T22:00:00+00:00",
+        "end_date_time": "2025-05-15T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "af1d1df2-0ee1-4ffd-969e-3026d8108ca3",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_end_time",
+        "data": {
+          "id": "f83fad35-1039-5dcf-949e-676433ec72b4",
+          "type": "sleep_end_time",
+          "unit": "datetime",
+          "value": "2025-05-15T14:00-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-15T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T22:00:00+00:00",
+        "end_date_time": "2025-05-15T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "e86be695-0041-4945-8ca7-74d6d756dfe4",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_mid_time",
+        "data": {
+          "id": "264c97d9-650e-5b8d-9c88-aa1f0e4d5495",
+          "type": "sleep_mid_time",
+          "unit": "datetime",
+          "value": "2025-05-15T09:45-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-15T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T22:00:00+00:00",
+        "end_date_time": "2025-05-15T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "5640cdca-4c99-4798-8544-27e3a7528b44",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_duration",
+        "data": {
+          "id": "6d3f6e33-1292-5db2-aebb-a10e78347460",
+          "type": "sleep_duration",
+          "unit": "minute",
+          "value": "510",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-15T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T22:00:00+00:00",
+        "end_date_time": "2025-05-15T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "06b1392b-1490-4aae-a5c3-8473fb2094e5",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "activity_sedentary_duration",
+        "data": {
+          "id": "5c873516-ee3e-521c-ba16-29a1a0b6ff2b",
+          "type": "activity_sedentary_duration",
+          "unit": "minute",
+          "value": "270",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-14T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T04:00:00+00:00",
+        "end_date_time": "2025-05-15T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "14234cda-c5ce-4e54-9ae3-62e691d42b2a",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_energy_burned",
+        "data": {
+          "id": "d76ff642-b92d-5d9d-a32d-4673b65f6086",
+          "type": "active_energy_burned",
+          "unit": "kcal",
+          "value": "287",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-14T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T04:00:00+00:00",
+        "end_date_time": "2025-05-15T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "57f69ee4-aa8c-4f45-b148-73de8b9656db",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_hours",
+        "data": {
+          "id": "5fe412d1-879d-55f7-9648-c062a5c8d519",
+          "type": "active_hours",
+          "unit": "hour",
+          "value": "13",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-14T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T04:00:00+00:00",
+        "end_date_time": "2025-05-15T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "1c774c63-2cd1-4502-a3e0-76e0f29db72c",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "floors_climbed",
+        "data": {
+          "id": "c537bf56-9aa8-53f9-84e5-96f8a313ee0d",
+          "type": "floors_climbed",
+          "unit": "count",
+          "value": "15",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-14T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T04:00:00+00:00",
+        "end_date_time": "2025-05-15T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "68923e2a-b487-43d8-8bfd-003ce108989d",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "steps",
+        "data": {
+          "id": "c4a9e20d-d88c-5e7e-bb23-2a88976a6410",
+          "type": "steps",
+          "unit": "count",
+          "value": "10763",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-14T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T04:00:00+00:00",
+        "end_date_time": "2025-05-15T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "8b498b9d-1ca0-4f01-8563-f64739344bfd",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_duration",
+        "data": {
+          "id": "167de50b-f2d8-564b-8350-9c6317b3f5c8",
+          "type": "active_duration",
+          "unit": "minute",
+          "value": "629",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-14T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T04:00:00+00:00",
+        "end_date_time": "2025-05-15T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "a3d9c428-ffba-44ba-b08c-5ad10d507f2d",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "activity_low_intensity_duration",
+        "data": {
+          "id": "87f6d1b8-95bc-5948-8a03-7996c508424b",
+          "type": "activity_low_intensity_duration",
+          "unit": "minute",
+          "value": "629",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-14T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-14T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-14T04:00:00+00:00",
+        "end_date_time": "2025-05-15T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "0dfc499a-f0b0-49ee-9d80-4b8c1dd70bfd",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_end_time",
+        "data": {
+          "id": "bfc60cbf-3e6b-52ee-a98e-c0c47692115c",
+          "type": "sleep_end_time",
+          "unit": "datetime",
+          "value": "2025-05-14T14:00-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-14T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T22:00:00+00:00",
+        "end_date_time": "2025-05-14T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "bd4150a5-8225-4fce-96bb-364ab285229e",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_start_time",
+        "data": {
+          "id": "62d775a7-5df8-5246-a164-d1cc8622931f",
+          "type": "sleep_start_time",
+          "unit": "datetime",
+          "value": "2025-05-14T05:00-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-14T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T22:00:00+00:00",
+        "end_date_time": "2025-05-14T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "aa84b9a2-d3e3-4480-bd9e-63304012931d",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_duration",
+        "data": {
+          "id": "c5e296cb-60c1-5141-a6b3-1e54286a90d1",
+          "type": "sleep_duration",
+          "unit": "minute",
+          "value": "540",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-14T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T22:00:00+00:00",
+        "end_date_time": "2025-05-14T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "0fdb35d4-a1e6-4b51-a86b-ee38de0eea53",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_mid_time",
+        "data": {
+          "id": "63e44dd9-4ded-54ee-ad2a-5bb0babacebf",
+          "type": "sleep_mid_time",
+          "unit": "datetime",
+          "value": "2025-05-14T09:30-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-14T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T22:00:00+00:00",
+        "end_date_time": "2025-05-14T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "93f152fa-a4f7-4414-92a9-9f81ad9268e5",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_in_bed_duration",
+        "data": {
+          "id": "9389adbb-9583-5e20-81e4-fc05bc914776",
+          "type": "sleep_in_bed_duration",
+          "unit": "minute",
+          "value": "540",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-14T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T22:00:00+00:00",
+        "end_date_time": "2025-05-14T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "c6c4f330-cd55-4d57-b61b-0c117d4cf1ad",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "activity_sedentary_duration",
+        "data": {
+          "id": "c86521ba-171e-5ce5-a663-d8525d691b8b",
+          "type": "activity_sedentary_duration",
+          "unit": "minute",
+          "value": "240",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-13T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T04:00:00+00:00",
+        "end_date_time": "2025-05-14T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "35dbe692-07aa-4812-bf72-a010784ec06f",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "steps",
+        "data": {
+          "id": "a10f4bfa-cad3-5343-8afa-56f8dba37557",
+          "type": "steps",
+          "unit": "count",
+          "value": "3220",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-13T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T04:00:00+00:00",
+        "end_date_time": "2025-05-14T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "225662c4-b09e-4957-b846-15df07ac4532",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "floors_climbed",
+        "data": {
+          "id": "0e3d2618-0f22-518c-b54f-2116f2997ee2",
+          "type": "floors_climbed",
+          "unit": "count",
+          "value": "12",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-13T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T04:00:00+00:00",
+        "end_date_time": "2025-05-14T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "d479a1b9-ad21-42a9-9a44-fef257ad0fe9",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_duration",
+        "data": {
+          "id": "14b31db3-be05-51ea-ab82-f8c847e32b36",
+          "type": "active_duration",
+          "unit": "minute",
+          "value": "629",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-13T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T04:00:00+00:00",
+        "end_date_time": "2025-05-14T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "4324671b-0c5f-4c5c-98c8-1129ecb96e29",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "activity_low_intensity_duration",
+        "data": {
+          "id": "7a2e4353-6507-5900-a1ed-1d5d06c731e6",
+          "type": "activity_low_intensity_duration",
+          "unit": "minute",
+          "value": "629",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-13T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T04:00:00+00:00",
+        "end_date_time": "2025-05-14T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "f9c3b347-fe1f-4ee5-ae7f-e7d1f0070142",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_hours",
+        "data": {
+          "id": "43d02f9f-6c0d-5f81-8881-17cd9457cead",
+          "type": "active_hours",
+          "unit": "hour",
+          "value": "12",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-13T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T04:00:00+00:00",
+        "end_date_time": "2025-05-14T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "897cb10a-cdb2-4087-a519-d0bca78e5fe5",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "activity",
+        "type": "active_energy_burned",
+        "data": {
+          "id": "fe3547c0-33ca-56bf-9200-358002f3e85a",
+          "type": "active_energy_burned",
+          "unit": "kcal",
+          "value": "65",
+          "category": "activity",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-13T23:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-13T00:00:00-04:00"
+        },
+        "start_date_time": "2025-05-13T04:00:00+00:00",
+        "end_date_time": "2025-05-14T03:59:59+00:00",
+        "created_at": "2025-06-11T14:31:30.671229+00:00",
+        "updated_at": "2025-06-11T14:31:30.671229+00:00"
+      },
+      {
+        "id": "7003eaab-b573-4b2c-9293-eef886250d8e",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_in_bed_duration",
+        "data": {
+          "id": "b2765098-9eff-5e44-b140-6ce4ac72dd60",
+          "type": "sleep_in_bed_duration",
+          "unit": "minute",
+          "value": "570",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-13T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-12T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T22:00:00+00:00",
+        "end_date_time": "2025-05-13T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "a8ef25fe-bbe6-4642-be89-685fbe1c424b",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_start_time",
+        "data": {
+          "id": "98bd8cf5-daac-5b46-bc92-691a6e44090f",
+          "type": "sleep_start_time",
+          "unit": "datetime",
+          "value": "2025-05-13T06:00-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-13T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-12T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T22:00:00+00:00",
+        "end_date_time": "2025-05-13T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "3aefbdd8-981d-4dae-a4b7-0c748bd0e6f6",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_end_time",
+        "data": {
+          "id": "cae81048-ecb0-55d3-b6f9-78c2f6cb2c4d",
+          "type": "sleep_end_time",
+          "unit": "datetime",
+          "value": "2025-05-13T15:30-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-13T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-12T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T22:00:00+00:00",
+        "end_date_time": "2025-05-13T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:32.557730+00:00",
+        "updated_at": "2025-06-11T14:31:32.557730+00:00"
+      },
+      {
+        "id": "627258bc-1bf9-44fa-b3a5-941ad736b1aa",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_duration",
+        "data": {
+          "id": "bd684a4e-0300-5c73-9a93-c1dac0f56ee2",
+          "type": "sleep_duration",
+          "unit": "minute",
+          "value": "570",
+          "category": "sleep",
+          "valueType": "integer",
+          "aggregation": "total",
+          "endDateTime": "2025-05-13T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-12T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T22:00:00+00:00",
+        "end_date_time": "2025-05-13T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:33.368572+00:00",
+        "updated_at": "2025-06-11T14:31:33.368572+00:00"
+      },
+      {
+        "id": "7ed13e92-6006-4744-9b29-2daf50e12de2",
+        "profile_id": "AWHDs3b6DMhhywvMwZkFZh2Byka2",
+        "category": "sleep",
+        "type": "sleep_mid_time",
+        "data": {
+          "id": "302f6096-d1d6-59a0-94c1-78d9a3573477",
+          "type": "sleep_mid_time",
+          "unit": "datetime",
+          "value": "2025-05-13T10:45-04:00",
+          "category": "sleep",
+          "valueType": "datetime",
+          "aggregation": "none",
+          "endDateTime": "2025-05-13T17:59:59-04:00",
+          "periodicity": "daily",
+          "startDateTime": "2025-05-12T18:00:00-04:00"
+        },
+        "start_date_time": "2025-05-12T22:00:00+00:00",
+        "end_date_time": "2025-05-13T21:59:59+00:00",
+        "created_at": "2025-06-11T14:31:33.368572+00:00",
+        "updated_at": "2025-06-11T14:31:33.368572+00:00"
+      }
+    ]
+  },
+  "memory_context": {
+    "has_memory": true,
+    "total_analyses": 4,
+    "last_analysis_date": "2025-06-30T08:38:16.228072+00:00",
+    "user_preferences": "{}",
+    "health_goals": "{}",
+    "dietary_restrictions": "{}",
+    "lifestyle_context": "{}",
+    "medical_conditions": "{}",
+    "formatted_context": "User Preferences: \"{}\"\n\nHealth Goals: \"{}\"\n\nDietary Restrictions: \"{}\"\n\nLifestyle Context: \"{}\"\n\nMedical Conditions: \"{}\"\n\nPrevious Analysis (from 2025-06-30 08:38:16.228072+00:00): # Health Data Analysis for User ID: AWHDs3b6DMhhywvMwZkFZh2Byka2\n\n## 1. Overall Health Assessment\n- **Comprehensive Health Score**: **65** (1-100 scale)\n  - **Justification**:\n    - **Mental Wellbeing**: Score of 0.59 (low) indicates emotional challenges persist, requiring focus on mood and coping strategies. Recent day averages suggest difficulty adapting positively.\n    - **Activity Score**: Score of 0.62 (low) reflects limited physical activity; records show a significantly low average of 1,0...\n\nAnalysis Insights: \"{\\\"data_summary\\\": {\\\"scores_count\\\": 30, \\\"archetypes_count\\\": 9, \\\"biomarkers_count\\\": 65}, \\\"analysis_date_range\\\": {\\\"days\\\": \\\"1970-01-01T00:00:07+00:00\\\", \\\"end_date\\\": \\\"2025-05-19T04:00:00\\\", \\\"start_date\\\": \\\"2025-05-12T04:00:00\\\"}}\"\n\nHealth Trends: \"{}\"\n\nSuccess Patterns: \"{}\"\n\nAreas for Improvement: \"{}\"\n\nTotal Previous Analyses: 4"
+  }
+}
+================================================================================

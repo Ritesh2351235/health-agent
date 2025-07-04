@@ -230,7 +230,7 @@ Remember: You are creating a detailed, personalized nutrition intervention based
 nutrition_plan_agent = Agent(
     name="Personalized Detailed Nutrition Planning Agent",
     instructions=NUTRITION_PLAN_PROMPT,
-    model="gpt-4o-mini",
+    model="o3-mini",
     output_type=NutritionPlanResult
 )
 

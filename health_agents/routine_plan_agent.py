@@ -156,7 +156,7 @@ Remember: You are creating a personalized lifestyle intervention based on real h
 routine_plan_agent = Agent(
     name="Personalized Routine Planning Agent",
     instructions=ROUTINE_PLAN_PROMPT,
-    model="gpt-4o-mini",
+    model="o3-mini",
     output_type=RoutinePlanResult
 )
 

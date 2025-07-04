@@ -229,7 +229,7 @@ Remember: You are analyzing real health data to create a comprehensive foundatio
 metric_analysis_agent = Agent(
     name="Health Metrics Analysis Agent",
     instructions=METRIC_ANALYSIS_PROMPT,
-    model="gpt-4o-mini",
+    model="o3-mini",
     output_type=str  # For now, returning string analysis
 )
 
