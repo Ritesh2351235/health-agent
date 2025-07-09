@@ -7,6 +7,7 @@ from dataclasses import dataclass
 import asyncpg
 from .nutrition_plan_agent import NutritionPlanResult
 from .routine_plan_agent import RoutinePlanResult
+from .behavior_analysis_agent import BehaviorAnalysisResult
 
 @dataclass
 class UserMemory:
@@ -21,6 +22,7 @@ class UserMemory:
     analysis_insights: Dict[str, Any]
     last_nutrition_plan: Optional[Dict[str, Any]]
     last_routine_plan: Optional[Dict[str, Any]]
+    last_behavior_analysis: Optional[Dict[str, Any]]
     health_trends: Dict[str, Any]
     improvement_areas: Dict[str, Any]
     success_patterns: Dict[str, Any]
@@ -28,6 +30,7 @@ class UserMemory:
     last_analysis_date: Optional[datetime]
     nutrition_plan_date: Optional[datetime]
     routine_plan_date: Optional[datetime]
+    behavior_analysis_date: Optional[datetime]
 
 class MemoryManager:
     """Manages user memory for health analysis continuity"""
@@ -73,8 +76,8 @@ class MemoryManager:
                 SELECT profile_id, user_preferences, health_goals, dietary_restrictions, 
                        lifestyle_context, medical_conditions, last_analysis_result, 
                        analysis_insights, last_nutrition_plan, last_routine_plan, 
-                       health_trends, improvement_areas, success_patterns, total_analyses,
-                       last_analysis_date, nutrition_plan_date, routine_plan_date
+                       last_behavior_analysis, health_trends, improvement_areas, success_patterns, total_analyses,
+                       last_analysis_date, nutrition_plan_date, routine_plan_date, behavior_analysis_date
                 FROM memory 
                 WHERE profile_id = $1
             """
@@ -93,13 +96,15 @@ class MemoryManager:
                     analysis_insights=row['analysis_insights'] or {},
                     last_nutrition_plan=row['last_nutrition_plan'],
                     last_routine_plan=row['last_routine_plan'],
+                    last_behavior_analysis=row['last_behavior_analysis'],
                     health_trends=row['health_trends'] or {},
                     improvement_areas=row['improvement_areas'] or {},
                     success_patterns=row['success_patterns'] or {},
                     total_analyses=row['total_analyses'] or 0,
                     last_analysis_date=row['last_analysis_date'],
                     nutrition_plan_date=row['nutrition_plan_date'],
-                    routine_plan_date=row['routine_plan_date']
+                    routine_plan_date=row['routine_plan_date'],
+                    behavior_analysis_date=row['behavior_analysis_date']
                 )
             return None
             
@@ -253,6 +258,80 @@ class MemoryManager:
         except Exception as e:
             print(f"Error updating routine plan: {e}")
             return False
+
+    async def update_behavior_analysis(self, profile_id: str, 
+                                     behavior_analysis: BehaviorAnalysisResult) -> bool:
+        """Update memory with new behavior analysis"""
+        if not self.connection:
+            await self.connect()
+        
+        try:
+            # Convert behavior analysis to dict for JSON storage
+            analysis_dict = {
+                "analysis_date": behavior_analysis.analysis_date,
+                "user_id": behavior_analysis.user_id,
+                "behavioral_signature": {
+                    "signature": behavior_analysis.behavioral_signature.signature,
+                    "confidence": behavior_analysis.behavioral_signature.confidence
+                },
+                "sophistication_assessment": {
+                    "score": behavior_analysis.sophistication_assessment.score,
+                    "category": behavior_analysis.sophistication_assessment.category,
+                    "justification": behavior_analysis.sophistication_assessment.justification
+                },
+                "primary_goal": {
+                    "goal": behavior_analysis.primary_goal.goal,
+                    "timeline": behavior_analysis.primary_goal.timeline,
+                    "success_metrics": behavior_analysis.primary_goal.success_metrics
+                },
+                "adaptive_parameters": {
+                    "complexity_level": behavior_analysis.adaptive_parameters.complexity_level,
+                    "time_commitment": behavior_analysis.adaptive_parameters.time_commitment,
+                    "technology_integration": behavior_analysis.adaptive_parameters.technology_integration,
+                    "customization_level": behavior_analysis.adaptive_parameters.customization_level
+                },
+                "evidence_based_kpis": {
+                    "behavioral_metrics": behavior_analysis.evidence_based_kpis.behavioral_metrics,
+                    "performance_metrics": behavior_analysis.evidence_based_kpis.performance_metrics,
+                    "mastery_metrics": behavior_analysis.evidence_based_kpis.mastery_metrics
+                },
+                "personalized_strategy": {
+                    "motivation_drivers": behavior_analysis.personalized_strategy.motivation_drivers,
+                    "habit_integration": behavior_analysis.personalized_strategy.habit_integration,
+                    "barrier_mitigation": behavior_analysis.personalized_strategy.barrier_mitigation
+                },
+                "adaptation_framework": {
+                    "escalation_triggers": behavior_analysis.adaptation_framework.escalation_triggers,
+                    "deescalation_triggers": behavior_analysis.adaptation_framework.deescalation_triggers,
+                    "adaptation_frequency": behavior_analysis.adaptation_framework.adaptation_frequency
+                },
+                "readiness_level": behavior_analysis.readiness_level,
+                "habit_formation_stage": behavior_analysis.habit_formation_stage,
+                "motivation_profile": {
+                    "primary_drivers": behavior_analysis.motivation_profile.primary_drivers,
+                    "secondary_drivers": behavior_analysis.motivation_profile.secondary_drivers,
+                    "motivation_type": behavior_analysis.motivation_profile.motivation_type,
+                    "reward_preferences": behavior_analysis.motivation_profile.reward_preferences,
+                    "accountability_level": behavior_analysis.motivation_profile.accountability_level,
+                    "social_motivation": behavior_analysis.motivation_profile.social_motivation
+                },
+                "context_considerations": behavior_analysis.context_considerations,
+                "recommendations": behavior_analysis.recommendations
+            }
+            
+            query = """
+                UPDATE memory 
+                SET last_behavior_analysis = $2,
+                    behavior_analysis_date = NOW()
+                WHERE profile_id = $1
+            """
+            
+            await self.connection.execute(query, profile_id, self._serialize_for_json(analysis_dict))
+            return True
+            
+        except Exception as e:
+            print(f"Error updating behavior analysis: {e}")
+            return False
     
     async def update_user_context(self, profile_id: str, 
                                  user_preferences: Dict[str, Any] = None,
@@ -383,6 +462,10 @@ class MemoryManager:
         
         if memory.improvement_areas:
             context_parts.append(f"Areas for Improvement: {self._serialize_for_json(memory.improvement_areas)}")
+        
+        # Previous behavior analysis
+        if memory.last_behavior_analysis:
+            context_parts.append(f"Previous Behavior Analysis (from {memory.behavior_analysis_date}): {self._serialize_for_json(memory.last_behavior_analysis)}")
         
         # Analysis history
         context_parts.append(f"Total Previous Analyses: {memory.total_analyses}")

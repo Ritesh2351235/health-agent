@@ -13,6 +13,7 @@ from health_agents.user_profile import get_user_profile_context
 from health_agents.metric_analysis_agent import analyze_user_health_metrics
 from health_agents.nutrition_plan_agent import create_personalized_nutrition_plan, NutritionPlanResult
 from health_agents.routine_plan_agent import create_personalized_routine_plan, RoutinePlanResult
+from health_agents.behavior_analysis_agent import analyze_user_behavior, BehaviorAnalysisResult
 from health_agents.memory_manager import MemoryManager
 
 console = Console()
@@ -92,17 +93,25 @@ class HealthCoordinator:
         except Exception as e:
             console.print(f"[red]⚠️ Error logging input data: {str(e)}[/red]")
 
-    def log_output_data(self, analysis_result, nutrition_plan=None, routine_plan=None):
-        """Log output data (analysis, nutrition plan, routine plan) to output.txt in JSON format"""
+    def log_output_data(self, analysis_result, behavior_analysis=None, nutrition_plan=None, routine_plan=None):
+        """Log output data (analysis, behavior analysis, nutrition plan, routine plan) to output.txt in JSON format"""
         try:
             # Prepare output data for logging
             output_data = {
                 "timestamp": datetime.now().isoformat(),
                 "profile_id": self.profile_id,
                 "metric_analysis": analysis_result,
+                "behavior_analysis": None,
                 "nutrition_plan": None,
                 "routine_plan": None
             }
+            
+            # Add behavior analysis if available
+            if behavior_analysis:
+                try:
+                    output_data["behavior_analysis"] = self.serialize_data(behavior_analysis)
+                except Exception as e:
+                    output_data["behavior_analysis"] = f"Error serializing behavior analysis: {str(e)}"
             
             # Add nutrition plan if available
             if nutrition_plan:
@@ -213,6 +222,55 @@ class HealthCoordinator:
             
         except Exception as e:
             console.print(f"[red]Error displaying nutrition plan: {str(e)}[/red]")
+
+    def display_behavior_analysis(self, behavior_result: BehaviorAnalysisResult):
+        """Display structured behavior analysis data"""
+        try:
+            tree = Tree(f"📅 🧠 Behavioral Analysis Report")
+            
+            # Add date and user
+            main_tree = tree.add(f"[bold cyan]{behavior_result.analysis_date} - User: {behavior_result.user_id}[/bold cyan]")
+            
+            # Behavioral Signature
+            signature_tree = main_tree.add(f"[bold magenta]🎯 Behavioral Signature[/bold magenta]")
+            signature_tree.add(f"[bold white]'{behavior_result.behavioral_signature.signature}'[/bold white]")
+            signature_tree.add(f"[dim]Confidence: {behavior_result.behavioral_signature.confidence:.1%}[/dim]")
+            
+            # Sophistication Assessment
+            sophistication_tree = main_tree.add(f"[bold green]📊 Sophistication Assessment[/bold green]")
+            sophistication_tree.add(f"Score: [bold]{behavior_result.sophistication_assessment.score}/100[/bold] ([bold]{behavior_result.sophistication_assessment.category}[/bold])")
+            sophistication_tree.add(f"[dim italic]{behavior_result.sophistication_assessment.justification}[/dim italic]")
+            
+            # Primary Goal
+            goal_tree = main_tree.add(f"[bold blue]🎯 Primary Goal[/bold blue]")
+            goal_tree.add(f"[bold white]{behavior_result.primary_goal.goal}[/bold white]")
+            goal_tree.add(f"Timeline: [bold]{behavior_result.primary_goal.timeline}[/bold]")
+            
+            success_tree = goal_tree.add("[yellow]📈 Success Metrics[/yellow]")
+            for metric in behavior_result.primary_goal.success_metrics:
+                success_tree.add(f"• {metric}")
+            
+            # Adaptive Parameters
+            adaptive_tree = main_tree.add(f"[bold purple]⚙️ Adaptive Parameters[/bold purple]")
+            adaptive_tree.add(f"• Complexity: [bold]{behavior_result.adaptive_parameters.complexity_level}[/bold]")
+            adaptive_tree.add(f"• Time Commitment: [bold]{behavior_result.adaptive_parameters.time_commitment}[/bold]")
+            adaptive_tree.add(f"• Technology Integration: [bold]{behavior_result.adaptive_parameters.technology_integration}[/bold]")
+            adaptive_tree.add(f"• Customization Level: [bold]{behavior_result.adaptive_parameters.customization_level}[/bold]")
+            
+            # Readiness & Stage
+            status_tree = main_tree.add(f"[bold yellow]📋 Current Status[/bold yellow]")
+            status_tree.add(f"Readiness Level: [bold]{behavior_result.readiness_level}[/bold]")
+            status_tree.add(f"Habit Formation Stage: [bold]{behavior_result.habit_formation_stage}[/bold]")
+            
+            # Recommendations
+            rec_tree = main_tree.add(f"[bold red]💡 Key Recommendations[/bold red]")
+            for i, rec in enumerate(behavior_result.recommendations[:5], 1):  # Show top 5
+                rec_tree.add(f"{i}. {rec}")
+            
+            console.print(Panel(tree, title="🧠 Behavioral Analysis Report", border_style="blue", padding=(1, 2)))
+            
+        except Exception as e:
+            console.print(f"[red]Error displaying behavior analysis: {str(e)}[/red]")
 
     async def run_analysis(self, days: int = 7):
         """Complete health analysis workflow with nutrition and routine planning"""
@@ -331,7 +389,28 @@ class HealthCoordinator:
                 console.print(f"[bold red]❌ Error during health analysis: {str(e)}[/bold red]")
                 return
             
-            # Step 3: Create personalized nutrition plan
+            # Step 3: Run comprehensive behavior analysis
+            console.print("[cyan]🧠 Running comprehensive behavior analysis...[/cyan]")
+            behavior_analysis = None
+            try:
+                with console.status("[bold cyan]Analyzing behavioral patterns with AI...") as status:
+                    behavior_analysis = await analyze_user_behavior(user_context, memory_context)
+                
+                console.print("[bold green]✅ Behavior analysis complete![/bold green]\n")
+                
+                # Display the behavior analysis results
+                self.display_behavior_analysis(behavior_analysis)
+                
+                # Update memory with behavior analysis result
+                if user_memory:
+                    await self.memory_manager.update_behavior_analysis(self.profile_id, behavior_analysis)
+                    console.print("[dim]💾 Behavior analysis saved to memory...[/dim]")
+                
+            except Exception as e:
+                console.print(f"[bold red]❌ Error during behavior analysis: {str(e)}[/bold red]")
+                behavior_analysis = None
+            
+            # Step 4: Create personalized nutrition plan
             console.print("[cyan]🥗 Creating personalized nutrition plan...[/cyan]")
             try:
                 with console.status("[bold cyan]Generating nutrition recommendations...") as status:
@@ -351,13 +430,13 @@ class HealthCoordinator:
                 console.print(f"[bold red]❌ Error creating nutrition plan: {str(e)}[/bold red]")
                 nutrition_plan = None
             
-            # Step 4: Create personalized routine plan
-            console.print("[cyan]🏃‍♀️ Creating personalized routine plan...[/cyan]")
+            # Step 5: Create personalized routine plan (with behavior analysis integration)
+            console.print("[cyan]🏃‍♀️ Creating personalized routine plan with behavioral insights...[/cyan]")
             try:
-                with console.status("[bold cyan]Generating routine recommendations...") as status:
-                    routine_plan = await create_personalized_routine_plan(analysis_result)
+                with console.status("[bold cyan]Generating behaviorally-informed routine recommendations...") as status:
+                    routine_plan = await create_personalized_routine_plan(analysis_result, behavior_analysis)
                 
-                console.print("[bold green]✅ Routine plan created![/bold green]\n")
+                console.print("[bold green]✅ Behaviorally-informed routine plan created![/bold green]\n")
                 
                 # Display the routine plan
                 self.display_routine_plan(routine_plan)
@@ -371,10 +450,10 @@ class HealthCoordinator:
                 console.print(f"[bold red]❌ Error creating routine plan: {str(e)}[/bold red]")
                 routine_plan = None
             
-            # Log complete output data (analysis + nutrition plan + routine plan)
+            # Log complete output data (analysis + behavior analysis + nutrition plan + routine plan)
             console.print("[cyan]📝 Logging complete output data...[/cyan]")
             try:
-                self.log_output_data(analysis_result, nutrition_plan, routine_plan)
+                self.log_output_data(analysis_result, behavior_analysis, nutrition_plan, routine_plan)
             except Exception as e:
                 console.print(f"[red]⚠️ Error logging output data: {str(e)}[/red]")
             
@@ -383,8 +462,9 @@ class HealthCoordinator:
             console.print("[bold green]🎉 COMPREHENSIVE HEALTH ANALYSIS COMPLETE! 🎉[/bold green]")
             console.print("="*80)
             console.print(f"[cyan]✅ Health metrics analyzed for profile: {self.profile_id}[/cyan]")
+            console.print(f"[cyan]✅ Comprehensive behavior analysis completed (Structured Output)[/cyan]")
             console.print(f"[cyan]✅ Personalized nutrition plan generated (Structured Output)[/cyan]")
-            console.print(f"[cyan]✅ Personalized routine plan generated (Structured Output)[/cyan]")
+            console.print(f"[cyan]✅ Behaviorally-informed routine plan generated (Structured Output)[/cyan]")
             console.print(f"[cyan]✅ User memory updated with latest results[/cyan]")
             console.print(f"[dim]Analysis period: {user_context.date_range['start_date']} to {user_context.date_range['end_date']}[/dim]")
             console.print("="*80)
