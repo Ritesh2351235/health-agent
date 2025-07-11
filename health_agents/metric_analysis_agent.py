@@ -102,7 +102,7 @@ Please structure your response according to the MetricAnalysisResult format.
         
         return analysis_prompt
     
-    async def analyze_metrics(self, context: UserProfileContext, memory_context: str = "") -> str:
+    async def analyze_metrics(self, context: UserProfileContext, memory_context: str = "", previous_analysis: str = "") -> str:
         """Analyze user health metrics using the AI agent"""
         try:
             from agents import Runner
@@ -125,6 +125,41 @@ The following is previous memory and context about this user that should inform 
 - Note improvements or deteriorations from past analyses
 - Provide continuity in your health recommendations
 - Avoid repeating identical advice if recent analysis exists
+"""
+            
+            # Add previous analysis comparison if available
+            if previous_analysis:
+                analysis_input += f"""
+
+### PREVIOUS METRIC ANALYSIS FOR COMPARISON
+The following is the previous metric analysis for this user. Use this to identify trends, changes, and improvements:
+
+{previous_analysis}
+
+**Important**: Use this previous analysis to:
+- Compare current metrics against previous baseline
+- Identify improvements or deteriorations since last analysis
+- Track progress toward health goals
+- Adjust recommendations based on what has/hasn't worked
+- Note any concerning changes that require attention
+- Provide continuity in health recommendations
+- Focus on incremental improvements rather than repeating identical advice
+
+**Analysis Type**: This is a FOLLOW-UP ANALYSIS. Focus on:
+- What has changed since the previous analysis
+- Progress toward previous recommendations
+- New insights from current data
+- Adjusted recommendations based on demonstrated patterns
+- Trends and trajectory analysis
+"""
+            else:
+                analysis_input += """
+
+**Analysis Type**: This is an INITIAL ANALYSIS. Focus on:
+- Establishing baseline health metrics
+- Identifying key health patterns and trends
+- Providing comprehensive health assessment
+- Setting foundational health goals and recommendations
 """
             
             # Run the analysis agent
@@ -234,7 +269,7 @@ metric_analysis_agent = Agent(
 )
 
 # Utility function for easy access
-async def analyze_user_health_metrics(user_context: UserProfileContext, memory_context: str = "") -> str:
+async def analyze_user_health_metrics(user_context: UserProfileContext, memory_context: str = "", previous_analysis: str = "") -> str:
     """
     Analyze user health metrics using AI
     
@@ -246,4 +281,4 @@ async def analyze_user_health_metrics(user_context: UserProfileContext, memory_c
         Comprehensive health analysis as a string
     """
     service = MetricAnalysisService()
-    return await service.analyze_metrics(user_context, memory_context)
+    return await service.analyze_metrics(user_context, memory_context, previous_analysis)

@@ -23,6 +23,14 @@ class UserMemory:
     last_nutrition_plan: Optional[Dict[str, Any]]
     last_routine_plan: Optional[Dict[str, Any]]
     last_behavior_analysis: Optional[Dict[str, Any]]
+    # Archetype-specific routine plans
+    transformation_seeker_plan: Optional[Dict[str, Any]]
+    systematic_improver_plan: Optional[Dict[str, Any]]
+    peak_performer_plan: Optional[Dict[str, Any]]
+    resilience_rebuilder_plan: Optional[Dict[str, Any]]
+    connected_explorer_plan: Optional[Dict[str, Any]]
+    foundation_builder_plan: Optional[Dict[str, Any]]
+    last_archetype: Optional[str]
     health_trends: Dict[str, Any]
     improvement_areas: Dict[str, Any]
     success_patterns: Dict[str, Any]
@@ -76,8 +84,11 @@ class MemoryManager:
                 SELECT profile_id, user_preferences, health_goals, dietary_restrictions, 
                        lifestyle_context, medical_conditions, last_analysis_result, 
                        analysis_insights, last_nutrition_plan, last_routine_plan, 
-                       last_behavior_analysis, health_trends, improvement_areas, success_patterns, total_analyses,
-                       last_analysis_date, nutrition_plan_date, routine_plan_date, behavior_analysis_date
+                       last_behavior_analysis, transformation_seeker_plan, systematic_improver_plan,
+                       peak_performer_plan, resilience_rebuilder_plan, connected_explorer_plan,
+                       foundation_builder_plan, last_archetype, health_trends, improvement_areas, 
+                       success_patterns, total_analyses, last_analysis_date, nutrition_plan_date, 
+                       routine_plan_date, behavior_analysis_date
                 FROM memory 
                 WHERE profile_id = $1
             """
@@ -97,6 +108,14 @@ class MemoryManager:
                     last_nutrition_plan=row['last_nutrition_plan'],
                     last_routine_plan=row['last_routine_plan'],
                     last_behavior_analysis=row['last_behavior_analysis'],
+                    # Archetype-specific routine plans
+                    transformation_seeker_plan=row['transformation_seeker_plan'],
+                    systematic_improver_plan=row['systematic_improver_plan'],
+                    peak_performer_plan=row['peak_performer_plan'],
+                    resilience_rebuilder_plan=row['resilience_rebuilder_plan'],
+                    connected_explorer_plan=row['connected_explorer_plan'],
+                    foundation_builder_plan=row['foundation_builder_plan'],
+                    last_archetype=row['last_archetype'],
                     health_trends=row['health_trends'] or {},
                     improvement_areas=row['improvement_areas'] or {},
                     success_patterns=row['success_patterns'] or {},
@@ -332,7 +351,57 @@ class MemoryManager:
         except Exception as e:
             print(f"Error updating behavior analysis: {e}")
             return False
-    
+
+    async def update_archetype_routine_plan(self, profile_id: str, 
+                                           archetype: str, routine_plan: RoutinePlanResult) -> bool:
+        """Update memory with new archetype-specific routine plan"""
+        if not self.connection:
+            await self.connect()
+        
+        try:
+            # Convert routine plan to dict for JSON storage
+            plan_dict = {
+                "date": routine_plan.date,
+                "routine": {
+                    "summary": routine_plan.routine.summary,
+                    "morning_wakeup": self._time_block_to_dict(routine_plan.routine.morning_wakeup),
+                    "focus_block": self._time_block_to_dict(routine_plan.routine.focus_block),
+                    "afternoon_recharge": self._time_block_to_dict(routine_plan.routine.afternoon_recharge),
+                    "evening_winddown": self._time_block_to_dict(routine_plan.routine.evening_winddown)
+                }
+            }
+            
+            # Map archetype names to database column names
+            archetype_columns = {
+                "Transformation Seeker": "transformation_seeker_plan",
+                "Systematic Improver": "systematic_improver_plan",
+                "Peak Performer": "peak_performer_plan",
+                "Resilience Rebuilder": "resilience_rebuilder_plan",
+                "Connected Explorer": "connected_explorer_plan",
+                "Foundation Builder": "foundation_builder_plan"
+            }
+            
+            if archetype not in archetype_columns:
+                print(f"Unknown archetype: {archetype}")
+                return False
+            
+            column_name = archetype_columns[archetype]
+            
+            query = f"""
+                UPDATE memory 
+                SET {column_name} = $2,
+                    last_archetype = $3,
+                    routine_plan_date = NOW()
+                WHERE profile_id = $1
+            """
+            
+            await self.connection.execute(query, profile_id, self._serialize_for_json(plan_dict), archetype)
+            return True
+            
+        except Exception as e:
+            print(f"Error updating {archetype} routine plan: {e}")
+            return False
+
     async def update_user_context(self, profile_id: str, 
                                  user_preferences: Dict[str, Any] = None,
                                  health_goals: Dict[str, Any] = None,
@@ -470,4 +539,40 @@ class MemoryManager:
         # Analysis history
         context_parts.append(f"Total Previous Analyses: {memory.total_analyses}")
         
-        return "\n\n".join(context_parts) 
+        return "\n\n".join(context_parts)
+
+    async def update_analysis_results(self, profile_id: str, 
+                                    analysis_result: str = None,
+                                    nutrition_plan: NutritionPlanResult = None,
+                                    routine_plan: RoutinePlanResult = None,
+                                    behavior_analysis: BehaviorAnalysisResult = None,
+                                    selected_archetype: str = None) -> bool:
+        """Comprehensive update of all analysis results in memory"""
+        if not self.connection:
+            await self.connect()
+        
+        try:
+            # Update metric analysis result
+            if analysis_result:
+                await self.update_analysis_result(profile_id, analysis_result)
+            
+            # Update nutrition plan
+            if nutrition_plan:
+                await self.update_nutrition_plan(profile_id, nutrition_plan)
+            
+            # Update routine plan (with archetype if provided)
+            if routine_plan:
+                if selected_archetype:
+                    await self.update_archetype_routine_plan(profile_id, selected_archetype, routine_plan)
+                else:
+                    await self.update_routine_plan(profile_id, routine_plan)
+            
+            # Update behavior analysis
+            if behavior_analysis:
+                await self.update_behavior_analysis(profile_id, behavior_analysis)
+            
+            return True
+            
+        except Exception as e:
+            print(f"Error updating analysis results: {e}")
+            return False 
