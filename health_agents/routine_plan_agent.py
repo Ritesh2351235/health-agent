@@ -289,14 +289,37 @@ Remember: You are creating a personalized lifestyle intervention based on real h
         """Get list of available archetype options"""
         return list(ARCHETYPE_PROMPTS.keys())
     
-    def format_context_for_routine_planning(self, analysis_result: str, behavior_analysis: Optional[BehaviorAnalysisResult] = None, archetype: str = "Foundation Builder") -> str:
-        """Format metric analysis and behavior analysis for routine planning"""
+    def format_context_for_routine_planning(self, user_context, behavior_analysis: Optional[BehaviorAnalysisResult] = None, archetype: str = "Foundation Builder") -> str:
+        """Format user context and behavior analysis for routine planning"""
+        
+        # Create a health summary from user_context
+        health_summary = f"""
+### USER HEALTH DATA SUMMARY
+
+**Date Range**: {user_context.date_range['start_date'].strftime('%Y-%m-%d')} to {user_context.date_range['end_date'].strftime('%Y-%m-%d')} ({user_context.date_range['days']} days)
+
+**Data Available**:
+- Scores: {len(user_context.scores)} entries
+- Biomarkers: {len(user_context.biomarkers)} entries  
+- Archetypes: {len(user_context.archetypes)} entries
+
+**Health Scores Summary**:
+- Recent score types: {', '.join(set(s.type for s in user_context.scores[:10])) if user_context.scores else 'No scores available'}
+- Average recent score: {sum(s.score for s in user_context.scores[:10])/len(user_context.scores[:10]) if user_context.scores else 'No data'}
+
+**Biomarkers Summary**:
+- Categories: {', '.join(set(b.category for b in user_context.biomarkers[:10])) if user_context.biomarkers else 'No biomarkers available'}
+- Types: {', '.join(set(b.type for b in user_context.biomarkers[:10])) if user_context.biomarkers else 'No data'}
+
+**Archetype Data**:
+- Recent archetypes: {', '.join(set(a.name for a in user_context.archetypes[:5])) if user_context.archetypes else 'No archetypes available'}
+"""
         
         routine_prompt = f"""
 ## PERSONALIZED ROUTINE PLAN REQUEST - {archetype.upper()}
 
 ### COMPREHENSIVE HEALTH ANALYSIS
-{analysis_result}
+{health_summary}
 """
         
         # Add behavior analysis insights if available
@@ -367,7 +390,7 @@ Each time block should have 2-4 specific tasks with clear reasoning based on bot
         
         return routine_prompt
     
-    async def create_routine_plan(self, analysis_result: str, archetype: str = "Foundation Builder", behavior_analysis: Optional[BehaviorAnalysisResult] = None) -> RoutinePlanResult:
+    async def create_routine_plan(self, user_context, archetype: str = "Foundation Builder", behavior_analysis: Optional[BehaviorAnalysisResult] = None) -> RoutinePlanResult:
         """Create personalized routine plan using the AI agent with archetype and behavior analysis integration"""
         try:
             from agents import Runner
@@ -377,7 +400,7 @@ Each time block should have 2-4 specific tasks with clear reasoning based on bot
                 archetype = "Foundation Builder"  # Default fallback
             
             # Format the context for routine planning with behavior analysis and archetype
-            routine_input = self.format_context_for_routine_planning(analysis_result, behavior_analysis, archetype)
+            routine_input = self.format_context_for_routine_planning(user_context, behavior_analysis, archetype)
             
             # Run the appropriate archetype routine planning agent
             result = await Runner.run(
@@ -418,12 +441,12 @@ Each time block should have 2-4 specific tasks with clear reasoning based on bot
             )
 
 # Utility function for easy access
-async def create_personalized_routine_plan(analysis_result: str, archetype: str = "Foundation Builder", behavior_analysis: Optional[BehaviorAnalysisResult] = None) -> RoutinePlanResult:
+async def create_personalized_routine_plan(user_context, archetype: str = "Foundation Builder", behavior_analysis: Optional[BehaviorAnalysisResult] = None) -> RoutinePlanResult:
     """
     Create a personalized routine plan based on health analysis, archetype, and behavioral analysis
     
     Args:
-        analysis_result: String result from the metric analysis agent
+        user_context: UserContext object containing health data
         archetype: Selected archetype for routine planning approach
         behavior_analysis: Optional BehaviorAnalysisResult with behavioral insights
         
@@ -431,4 +454,4 @@ async def create_personalized_routine_plan(analysis_result: str, archetype: str 
         Structured RoutinePlanResult object with behavioral psychology integration
     """
     service = RoutinePlanService()
-    return await service.create_routine_plan(analysis_result, archetype, behavior_analysis)
+    return await service.create_routine_plan(user_context, archetype, behavior_analysis)

@@ -11,7 +11,6 @@ from rich.json import JSON
 from rich.tree import Tree
 from rich.prompt import Prompt
 from health_agents.user_profile import get_user_profile_context
-from health_agents.metric_analysis_agent import analyze_user_health_metrics
 from health_agents.nutrition_plan_agent import create_personalized_nutrition_plan, NutritionPlanResult
 from health_agents.routine_plan_agent import create_personalized_routine_plan, RoutinePlanResult, RoutinePlanService
 from health_agents.behavior_analysis_agent import analyze_user_behavior, BehaviorAnalysisResult
@@ -98,14 +97,31 @@ class HealthCoordinator:
         except Exception as e:
             console.print(f"[red]⚠️ Error logging input data: {str(e)}[/red]")
 
-    def log_output_data(self, analysis_result, behavior_analysis=None, nutrition_plan=None, routine_plan=None):
-        """Log output data (analysis, behavior analysis, nutrition plan, routine plan) to output.txt in JSON format"""
+    def log_output_data(self, user_context, behavior_analysis=None, nutrition_plan=None, routine_plan=None):
+        """Log output data (user context summary, behavior analysis, nutrition plan, routine plan) to output.txt in JSON format"""
         try:
+            # Create a summary of user_context data
+            user_data_summary = {
+                "date_range": {
+                    "start_date": user_context.date_range['start_date'].isoformat(),
+                    "end_date": user_context.date_range['end_date'].isoformat(),
+                    "days": user_context.date_range['days']
+                },
+                "data_counts": {
+                    "scores": len(user_context.scores),
+                    "biomarkers": len(user_context.biomarkers),
+                    "archetypes": len(user_context.archetypes)
+                },
+                "score_types": list(set(s.type for s in user_context.scores[:10])) if user_context.scores else [],
+                "biomarker_categories": list(set(b.category for b in user_context.biomarkers[:10])) if user_context.biomarkers else [],
+                "archetype_names": list(set(a.name for a in user_context.archetypes[:5])) if user_context.archetypes else []
+            }
+            
             # Prepare output data for logging
             output_data = {
                 "timestamp": datetime.now().isoformat(),
                 "profile_id": self.profile_id,
-                "metric_analysis": analysis_result,
+                "user_data_summary": user_data_summary,
                 "behavior_analysis": None,
                 "nutrition_plan": None,
                 "routine_plan": None
@@ -281,7 +297,6 @@ class HealthCoordinator:
         """Complete health analysis workflow with nutrition and routine planning"""
         
         # Initialize variables to store results for logging
-        analysis_result = None
         nutrition_plan = None
         routine_plan = None
         behavior_analysis = None
@@ -368,8 +383,6 @@ class HealthCoordinator:
                     if has_previous_analysis:
                         console.print("[dim]📝 Including previous memory context for follow-up analysis...[/dim]")
                         # Extract previous analysis data
-                        if user_memory.last_analysis_result:
-                            previous_analysis["metric_analysis"] = user_memory.last_analysis_result
                         if user_memory.last_behavior_analysis:
                             previous_analysis["behavior_analysis"] = user_memory.last_behavior_analysis
                     else:
@@ -383,56 +396,7 @@ class HealthCoordinator:
                 memory_context = ""
                 previous_analysis = {}
 
-            # Step 2: Run health metrics analysis with memory context
-            console.print("[cyan]🤖 Running AI-powered health metrics analysis...[/cyan]")
-            try:
-                with console.status("[bold cyan]Analyzing health metrics with AI...") as status:
-                    # Pass previous analysis if available for follow-up mode
-                    previous_metric_analysis = previous_analysis.get("metric_analysis", "") if has_previous_analysis else ""
-                    analysis_result = await analyze_user_health_metrics(
-                        user_context, 
-                        memory_context, 
-                        previous_metric_analysis
-                    )
-                
-                console.print("[bold green]✅ Health analysis complete![/bold green]\n")
-                
-                # Display the analysis results
-                console.print(Panel(
-                    Markdown(analysis_result),
-                    title="🏥 Health Analysis Report",
-                    border_style="green"
-                ))
-                
-                # Update memory with analysis result
-                if user_memory:
-                    # Convert datetime objects to strings for JSON serialization
-                    analysis_insights = {
-                        "analysis_date_range": {
-                            "start_date": user_context.date_range['start_date'].isoformat(),
-                            "end_date": user_context.date_range['end_date'].isoformat(),
-                            "days": user_context.date_range['days']
-                        },
-                        "data_summary": {
-                            "scores_count": len(user_context.scores),
-                            "archetypes_count": len(user_context.archetypes),
-                            "biomarkers_count": len(user_context.biomarkers)
-                        },
-                        "analysis_type": analysis_type
-                    }
-                    
-                    await self.memory_manager.update_analysis_result(
-                        self.profile_id, 
-                        analysis_result,
-                        analysis_insights
-                    )
-                    console.print("[dim]💾 Analysis results saved to memory...[/dim]")
-                
-            except Exception as e:
-                console.print(f"[bold red]❌ Error during health analysis: {str(e)}[/bold red]")
-                return
-            
-            # Step 3: Run comprehensive behavior analysis
+            # Step 2: Run comprehensive behavior analysis
             console.print("[cyan]🧠 Running comprehensive behavior analysis...[/cyan]")
             try:
                 with console.status("[bold cyan]Analyzing behavioral patterns with AI...") as status:
@@ -462,7 +426,7 @@ class HealthCoordinator:
             console.print("[cyan]🥗 Creating personalized nutrition plan...[/cyan]")
             try:
                 with console.status("[bold cyan]Generating nutrition recommendations...") as status:
-                    nutrition_plan = await create_personalized_nutrition_plan(analysis_result)
+                    nutrition_plan = await create_personalized_nutrition_plan(user_context, behavior_analysis)
                 
                 console.print("[bold green]✅ Nutrition plan created![/bold green]\n")
                 
@@ -482,7 +446,7 @@ class HealthCoordinator:
             console.print(f"[cyan]🏃‍♀️ Creating personalized routine plan with behavioral insights for {selected_archetype}...[/cyan]")
             try:
                 with console.status("[bold cyan]Generating behaviorally-informed routine recommendations...") as status:
-                    routine_plan = await create_personalized_routine_plan(analysis_result, selected_archetype, behavior_analysis)
+                    routine_plan = await create_personalized_routine_plan(user_context, selected_archetype, behavior_analysis) # Changed to user_context
                 
                 console.print("[bold green]✅ Behaviorally-informed routine plan created![/bold green]\n")
                 
@@ -504,7 +468,7 @@ class HealthCoordinator:
                 # Update memory with analysis results
                 await self.memory_manager.update_analysis_results(
                     self.profile_id,
-                    analysis_result,
+                    user_context, # Changed to user_context
                     nutrition_plan,
                     routine_plan,
                     behavior_analysis,
@@ -518,7 +482,7 @@ class HealthCoordinator:
             # Log complete output data (analysis + behavior analysis + nutrition plan + routine plan)
             console.print("[cyan]📝 Logging complete output data...[/cyan]")
             try:
-                self.log_output_data(analysis_result, behavior_analysis, nutrition_plan, routine_plan)
+                self.log_output_data(user_context, behavior_analysis, nutrition_plan, routine_plan) # Changed to user_context
             except Exception as e:
                 console.print(f"[red]⚠️ Error logging output data: {str(e)}[/red]")
             

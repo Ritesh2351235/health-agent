@@ -64,7 +64,7 @@ class MemoryManager:
     async def connect(self):
         """Establish database connection"""
         try:
-            self.connection = await asyncpg.connect(self.database_url)
+            self.connection = await asyncpg.connect(self.database_url, statement_cache_size=0)
         except Exception as e:
             print(f"Error connecting to database: {e}")
             raise
@@ -542,7 +542,7 @@ class MemoryManager:
         return "\n\n".join(context_parts)
 
     async def update_analysis_results(self, profile_id: str, 
-                                    analysis_result: str = None,
+                                    user_context = None,
                                     nutrition_plan: NutritionPlanResult = None,
                                     routine_plan: RoutinePlanResult = None,
                                     behavior_analysis: BehaviorAnalysisResult = None,
@@ -552,9 +552,8 @@ class MemoryManager:
             await self.connect()
         
         try:
-            # Update metric analysis result
-            if analysis_result:
-                await self.update_analysis_result(profile_id, analysis_result)
+            # Note: No longer updating metric analysis result since we removed that step
+            # user_context is now passed for potential future data logging/tracking
             
             # Update nutrition plan
             if nutrition_plan:

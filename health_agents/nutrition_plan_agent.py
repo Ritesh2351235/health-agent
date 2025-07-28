@@ -1,4 +1,4 @@
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 from pydantic import BaseModel
 from agents import Agent
 
@@ -60,14 +60,51 @@ class NutritionPlanService:
     def __init__(self):
         self.agent = nutrition_plan_agent
     
-    def format_context_for_nutrition_planning(self, analysis_result: str) -> str:
-        """Format metric analysis for nutrition planning"""
+    def format_context_for_nutrition_planning(self, user_context, behavior_analysis=None) -> str:
+        """Format user context and behavior analysis for nutrition planning"""
+        
+        # Create a health summary from user_context
+        health_summary = f"""
+### USER HEALTH DATA SUMMARY
+
+**Date Range**: {user_context.date_range['start_date'].strftime('%Y-%m-%d')} to {user_context.date_range['end_date'].strftime('%Y-%m-%d')} ({user_context.date_range['days']} days)
+
+**Data Available**:
+- Scores: {len(user_context.scores)} entries
+- Biomarkers: {len(user_context.biomarkers)} entries  
+- Archetypes: {len(user_context.archetypes)} entries
+
+**Health Scores Summary**:
+- Recent score types: {', '.join(set(s.type for s in user_context.scores[:10])) if user_context.scores else 'No scores available'}
+- Average recent score: {sum(s.score for s in user_context.scores[:10])/len(user_context.scores[:10]) if user_context.scores else 'No data'}
+
+**Biomarkers Summary**:
+- Categories: {', '.join(set(b.category for b in user_context.biomarkers[:10])) if user_context.biomarkers else 'No biomarkers available'}
+- Types: {', '.join(set(b.type for b in user_context.biomarkers[:10])) if user_context.biomarkers else 'No data'}
+
+**Archetype Data**:
+- Recent archetypes: {', '.join(set(a.name for a in user_context.archetypes[:5])) if user_context.archetypes else 'No archetypes available'}
+"""
+
+        # Add behavior analysis insights if available
+        if behavior_analysis:
+            health_summary += f"""
+
+**Behavioral Analysis Summary**:
+- Sophistication Level: {behavior_analysis.sophistication_assessment.score}/100 ({behavior_analysis.sophistication_assessment.category})
+- Primary Goal: {behavior_analysis.primary_goal.goal}
+- Motivation Drivers: {', '.join(behavior_analysis.personalized_strategy.motivation_drivers)}
+- Habit Integration Needs: {', '.join(behavior_analysis.personalized_strategy.habit_integration)}
+- Barriers to Address: {', '.join(behavior_analysis.personalized_strategy.barrier_mitigation)}
+- Readiness Level: {behavior_analysis.readiness_level}
+- Context Considerations: {', '.join(behavior_analysis.context_considerations)}
+"""
         
         nutrition_prompt = f"""
 ## PERSONALIZED DETAILED NUTRITION PLAN REQUEST
 
 ### COMPREHENSIVE HEALTH ANALYSIS
-{analysis_result}
+{health_summary}
 
 ### DETAILED NUTRITION PLAN REQUEST
 Based on the comprehensive health analysis above, please create a detailed, personalized nutrition plan for TODAY that includes:
@@ -86,19 +123,19 @@ For each meal block, provide:
 - Nutrition tip explaining why this timing/composition matters for health
 - 1-2 specific meals with detailed descriptions, calories, protein, and macro breakdown
 
-Please make the plan practical, achievable, and directly tailored to address the specific health insights from the analysis.
+Please make the plan practical, achievable, and directly tailored to address the specific health insights and behavioral patterns from the analysis.
 Each meal should have specific food items, portions, and complete nutritional breakdown.
 """
         
         return nutrition_prompt
     
-    async def create_nutrition_plan(self, analysis_result: str) -> NutritionPlanResult:
+    async def create_nutrition_plan(self, user_context, behavior_analysis=None) -> NutritionPlanResult:
         """Create personalized nutrition plan using the AI agent"""
         try:
             from agents import Runner
             
             # Format the context for nutrition planning
-            nutrition_input = self.format_context_for_nutrition_planning(analysis_result)
+            nutrition_input = self.format_context_for_nutrition_planning(user_context, behavior_analysis)
             
             # Run the nutrition planning agent
             result = await Runner.run(
@@ -235,7 +272,7 @@ nutrition_plan_agent = Agent(
 )
 
 # Utility function for easy access
-async def create_personalized_nutrition_plan(analysis_result: str) -> NutritionPlanResult:
+async def create_personalized_nutrition_plan(user_context, behavior_analysis: Optional = None) -> NutritionPlanResult:
     """
     Create a personalized detailed nutrition plan based on health analysis and user data
     
@@ -246,4 +283,4 @@ async def create_personalized_nutrition_plan(analysis_result: str) -> NutritionP
         Structured NutritionPlanResult object with detailed meal plans
     """
     service = NutritionPlanService()
-    return await service.create_nutrition_plan(analysis_result)
+    return await service.create_nutrition_plan(user_context, behavior_analysis)

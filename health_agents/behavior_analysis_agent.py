@@ -102,7 +102,7 @@ Analyze the following user data and generate comprehensive behavioral insights f
     "primary": "{self._extract_archetype_from_context(context)}",
     "secondary": "unknown",
     "confidence_score": 0.85,
-    "assessment_date": "{context.date_range['start_date'].strftime('%Y-%m-%d') if context.date_range.get('start_date') else 'unknown'}",
+    "assessment_date": "{context.date_range['start_date'].strftime('%Y-%m-%d') if context.date_range.get('start_date') and hasattr(context.date_range['start_date'], 'strftime') else 'unknown'}",
     "evolution_trend": "stable"
   }},
   "demographics": {{
@@ -123,7 +123,7 @@ Analyze the following user data and generate comprehensive behavioral insights f
   "stress_score": {self._calculate_average_biomarker(context.scores, 'stress')},
   "energy_level": {self._calculate_average_biomarker(context.scores, 'energy')},
   "recovery_score": {self._calculate_average_biomarker(context.scores, 'recovery')},
-  "measurement_date": "{context.date_range['end_date'].strftime('%Y-%m-%d') if context.date_range.get('end_date') else 'unknown'}",
+  "measurement_date": "{context.date_range['end_date'].strftime('%Y-%m-%d') if context.date_range.get('end_date') and hasattr(context.date_range['end_date'], 'strftime') else 'unknown'}",
   "trend_direction": "{self._analyze_trend_direction(context)}"
 }}
 ```
@@ -277,7 +277,7 @@ Output Format: Structured JSON as defined in system training.
 ```json
 {{
   "user_id": "{context.user_id}",
-  "current_date": "{context.date_range['end_date'].strftime('%Y-%m-%d') if context.date_range.get('end_date') else 'unknown'}",
+  "current_date": "{context.date_range['end_date'].strftime('%Y-%m-%d') if context.date_range.get('end_date') and hasattr(context.date_range['end_date'], 'strftime') else 'unknown'}",
   "days_since_last_analysis": {self._calculate_days_since_last_analysis(context, previous_analysis)},
   "biomarker_evolution": {{
     "hrv_trend": "{self._compare_biomarker_trend(context, previous_analysis, 'hrv')}",
@@ -580,8 +580,22 @@ Generate a comprehensive evolutionary behavior analysis that builds upon the pre
         
         for score in scores:
             if hasattr(score, 'score_date_time') and score.score_date_time:
-                date_str = score.score_date_time.strftime('%Y-%m-%d')
-                daily_scores[date_str].append(score.score)
+                try:
+                    # Parse score_date_time string to datetime, then format it
+                    from datetime import datetime
+                    if isinstance(score.score_date_time, str):
+                        # Use the parse method to handle string dates
+                        score_dt = self._parse_score_date_time(score.score_date_time)
+                        date_str = score_dt.strftime('%Y-%m-%d')
+                    else:
+                        # Handle case where it might still be datetime
+                        date_str = score.score_date_time.strftime('%Y-%m-%d')
+                    daily_scores[date_str].append(score.score)
+                except Exception as e:
+                    # Fall back to using created_at if score_date_time parsing fails
+                    if hasattr(score, 'created_at') and score.created_at:
+                        date_str = score.created_at.strftime('%Y-%m-%d')
+                        daily_scores[date_str].append(score.score)
         
         # Calculate daily averages
         daily_rates = []
@@ -593,6 +607,19 @@ Generate a comprehensive evolutionary behavior analysis that builds upon the pre
                 daily_rates.append(avg_score * 100.0)
         
         return daily_rates if daily_rates else [self._calculate_completion_rate(scores)]
+
+    def _parse_score_date_time(self, score_date_str: str):
+        """Parse score_date_time string to datetime object for comparison"""
+        try:
+            from datetime import datetime
+            # Handle different possible formats
+            if 'T' in score_date_str:
+                return datetime.fromisoformat(score_date_str.replace('Z', '+00:00'))
+            else:
+                return datetime.strptime(score_date_str, '%Y-%m-%d %H:%M:%S')
+        except Exception as e:
+            # Return current time as fallback
+            return datetime.now()
 
     def _calculate_category_completion(self, scores: List, category: str) -> float:
         """Calculate completion rate for specific category"""
@@ -729,11 +756,28 @@ Generate a comprehensive evolutionary behavior analysis that builds upon the pre
         
         for score in scores:
             if hasattr(score, 'score_date_time') and score.score_date_time:
-                weekday = score.score_date_time.weekday()
-                if weekday < 5:  # Monday-Friday
-                    weekday_scores.append(score.score)
-                else:  # Saturday-Sunday
-                    weekend_scores.append(score.score)
+                try:
+                    # Parse score_date_time string to datetime, then get weekday
+                    if isinstance(score.score_date_time, str):
+                        # Use the parse method to handle string dates
+                        score_dt = self._parse_score_date_time(score.score_date_time)
+                        weekday = score_dt.weekday()
+                    else:
+                        # Handle case where it might still be datetime
+                        weekday = score.score_date_time.weekday()
+                    
+                    if weekday < 5:  # Monday-Friday
+                        weekday_scores.append(score.score)
+                    else:  # Saturday-Sunday
+                        weekend_scores.append(score.score)
+                except Exception as e:
+                    # Fall back to using created_at if score_date_time parsing fails
+                    if hasattr(score, 'created_at') and score.created_at:
+                        weekday = score.created_at.weekday()
+                        if weekday < 5:  # Monday-Friday
+                            weekday_scores.append(score.score)
+                        else:  # Saturday-Sunday
+                            weekend_scores.append(score.score)
         
         if not weekday_scores or not weekend_scores:
             return 0.0
@@ -884,12 +928,13 @@ Generate a comprehensive evolutionary behavior analysis that builds upon the pre
                 ),
                 personalized_strategy=PersonalizedStrategy(
                     motivation_drivers=[],
-                    habit_integration_approach="Error",
-                    barrier_mitigation_strategy="Error"
+                    habit_integration=["Error"],
+                    barrier_mitigation=["Error"]
                 ),
                 adaptation_framework=AdaptationFramework(
-                    triggers_for_escalation=[],
-                    triggers_for_de_escalation=[]
+                    escalation_triggers=[],
+                    deescalation_triggers=[],
+                    adaptation_frequency="Error"
                 ),
                 readiness_level="Error",
                 habit_formation_stage="Error",
@@ -897,7 +942,7 @@ Generate a comprehensive evolutionary behavior analysis that builds upon the pre
                     primary_drivers=[],
                     secondary_drivers=[],
                     motivation_type="Error",
-                    reward_preferences="Error",
+                    reward_preferences=["Error"],
                     accountability_level="Error",
                     social_motivation="Error"
                 ),

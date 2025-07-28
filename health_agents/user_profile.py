@@ -13,7 +13,7 @@ class ScoreData(BaseModel):
     type: str
     score: float
     data: Dict[str, Any]
-    score_date_time: datetime
+    score_date_time: str  # Changed to str since it's text in DB
     created_at: datetime
     updated_at: datetime
 
@@ -60,14 +60,35 @@ class UserProfileService:
     
     async def get_db_connection(self):
         """Get database connection"""
-        return await asyncpg.connect(self.database_url)
+        # Disable prepared statements for pgbouncer compatibility
+        return await asyncpg.connect(self.database_url, statement_cache_size=0)
         
     def get_date_range(self, days: int = 7) -> tuple[datetime, datetime]:
         """Get date range for the last N days"""
-        # Fixed date: 2025-05-19 04:00:00+00
-        end_date = datetime(2025, 5, 19, 4, 0, 0)
+        # Based on actual data analysis:
+        # - Scores: 2025-06-27 to 2025-07-07 (created_at)
+        # - Archetypes: 2025-06-01 to 2025-06-30
+        # - Biomarkers: 2025-06-12 to 2025-07-07
+        # Using latest available date as end_date
+        end_date = datetime(2025, 7, 7, 22, 50, 11)  # Latest score timestamp
         start_date = end_date - timedelta(days=days)
         return start_date, end_date
+    
+    def datetime_to_string(self, dt: datetime) -> str:
+        """Convert datetime to string format for SQL queries"""
+        return dt.isoformat()
+    
+    def parse_score_date_time(self, score_date_str: str) -> datetime:
+        """Parse score_date_time string to datetime object for comparison"""
+        try:
+            # Handle different possible formats
+            if 'T' in score_date_str:
+                return datetime.fromisoformat(score_date_str.replace('Z', '+00:00'))
+            else:
+                return datetime.strptime(score_date_str, '%Y-%m-%d %H:%M:%S')
+        except Exception as e:
+            print(f"Error parsing date string {score_date_str}: {e}")
+            return datetime.now()
     
     async def fetch_scores_data(self, profile_id: str, days: int = 7) -> List[ScoreData]:
         """Fetch scores data for the last N days"""
@@ -76,33 +97,42 @@ class UserProfileService:
         try:
             conn = await self.get_db_connection()
             
+            # Use created_at for filtering since score_date_time is unreliable (has old dates and nulls)
             query = """
                 SELECT id, profile_id, type, score, data, score_date_time, created_at, updated_at
                 FROM scores 
                 WHERE profile_id = $1 
-                AND score_date_time >= $2 
-                AND score_date_time <= $3
-                ORDER BY score_date_time DESC
+                AND created_at >= $2 
+                AND created_at <= $3
+                ORDER BY created_at DESC
             """
             
+            # Pass datetime objects directly (AsyncPG expects datetime, not strings)
             rows = await conn.fetch(query, profile_id, start_date, end_date)
             await conn.close()
             
             scores = []
             for row in rows:
-                # Parse JSON string to dictionary
-                data_dict = json.loads(row['data']) if isinstance(row['data'], str) else row['data']
-                
-                scores.append(ScoreData(
-                    id=str(row['id']),
-                    profile_id=row['profile_id'],
-                    type=row['type'],
-                    score=float(row['score']),
-                    data=data_dict,
-                    score_date_time=row['score_date_time'],
-                    created_at=row['created_at'],
-                    updated_at=row['updated_at']
-                ))
+                try:
+                    # Parse JSON string to dictionary
+                    data_dict = json.loads(row['data']) if isinstance(row['data'], str) else row['data']
+                    
+                    # Handle score_date_time as text (can be null or unreliable)
+                    score_date_time = row['score_date_time'] if row['score_date_time'] else ""
+                    
+                    scores.append(ScoreData(
+                        id=str(row['id']),
+                        profile_id=row['profile_id'],
+                        type=row['type'],
+                        score=float(row['score']),
+                        data=data_dict,
+                        score_date_time=score_date_time,
+                        created_at=row['created_at'],
+                        updated_at=row['updated_at']
+                    ))
+                except Exception as row_error:
+                    print(f"Error processing score row: {row_error}")
+                    continue
             
             return scores
             
@@ -112,7 +142,12 @@ class UserProfileService:
     
     async def fetch_archetypes_data(self, profile_id: str, days: int = 7) -> List[ArchetypeData]:
         """Fetch archetypes data for the last N days"""
+        # For archetypes, we need to adjust the date range since they end on 2025-06-30
+        # but our default range starts from 2025-06-30 (7 days before 2025-07-07)
         start_date, end_date = self.get_date_range(days)
+        
+        # Adjust end date for archetypes since they only go to 2025-06-30
+        archetype_end_date = min(end_date, datetime(2025, 6, 30, 23, 59, 59))
         
         try:
             conn = await self.get_db_connection()
@@ -122,30 +157,35 @@ class UserProfileService:
                 FROM archetypes 
                 WHERE profile_id = $1 
                 AND start_date_time >= $2 
-                AND end_date_time <= $3
+                AND start_date_time <= $3
                 ORDER BY start_date_time DESC
             """
             
-            rows = await conn.fetch(query, profile_id, start_date, end_date)
+            # Pass datetime objects directly (AsyncPG expects datetime, not strings)
+            rows = await conn.fetch(query, profile_id, start_date, archetype_end_date)
             await conn.close()
             
             archetypes = []
             for row in rows:
-                # Parse JSON string to dictionary
-                data_dict = json.loads(row['data']) if isinstance(row['data'], str) else row['data']
-                
-                archetypes.append(ArchetypeData(
-                    id=str(row['id']),
-                    profile_id=row['profile_id'],
-                    name=row['name'],
-                    periodicity=row['periodicity'],
-                    value=row['value'],
-                    data=data_dict,
-                    start_date_time=row['start_date_time'],
-                    end_date_time=row['end_date_time'],
-                    created_at=row['created_at'],
-                    updated_at=row['updated_at']
-                ))
+                try:
+                    # Parse JSON string to dictionary
+                    data_dict = json.loads(row['data']) if isinstance(row['data'], str) else row['data']
+                    
+                    archetypes.append(ArchetypeData(
+                        id=str(row['id']),
+                        profile_id=row['profile_id'],
+                        name=row['name'],
+                        periodicity=row['periodicity'],
+                        value=row['value'],
+                        data=data_dict,
+                        start_date_time=row['start_date_time'],
+                        end_date_time=row['end_date_time'],
+                        created_at=row['created_at'],
+                        updated_at=row['updated_at']
+                    ))
+                except Exception as row_error:
+                    print(f"Error processing archetype row: {row_error}")
+                    continue
             
             return archetypes
             
@@ -165,29 +205,34 @@ class UserProfileService:
                 FROM biomarkers 
                 WHERE profile_id = $1 
                 AND start_date_time >= $2 
-                AND end_date_time <= $3
+                AND start_date_time <= $3
                 ORDER BY start_date_time DESC
             """
             
+            # Pass datetime objects directly (AsyncPG expects datetime, not strings)
             rows = await conn.fetch(query, profile_id, start_date, end_date)
             await conn.close()
             
             biomarkers = []
             for row in rows:
-                # Parse JSON string to dictionary
-                data_dict = json.loads(row['data']) if isinstance(row['data'], str) else row['data']
-                
-                biomarkers.append(BiomarkerData(
-                    id=str(row['id']),
-                    profile_id=row['profile_id'],
-                    category=row['category'],
-                    type=row['type'],
-                    data=data_dict,
-                    start_date_time=row['start_date_time'],
-                    end_date_time=row['end_date_time'],
-                    created_at=row['created_at'],
-                    updated_at=row['updated_at']
-                ))
+                try:
+                    # Parse JSON string to dictionary
+                    data_dict = json.loads(row['data']) if isinstance(row['data'], str) else row['data']
+                    
+                    biomarkers.append(BiomarkerData(
+                        id=str(row['id']),
+                        profile_id=row['profile_id'],
+                        category=row['category'],
+                        type=row['type'],
+                        data=data_dict,
+                        start_date_time=row['start_date_time'],
+                        end_date_time=row['end_date_time'],
+                        created_at=row['created_at'],
+                        updated_at=row['updated_at']
+                    ))
+                except Exception as row_error:
+                    print(f"Error processing biomarker row: {row_error}")
+                    continue
             
             return biomarkers
             
